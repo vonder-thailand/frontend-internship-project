@@ -1,25 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Routing from './routes/index';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
-function App() {
+const NavLink_custom = styled(NavLink)`
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    height: 50px;
+    width: 130px;
+    justify-content: center;
+`;
+
+const Container_App = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container_App className="my-app">
+    <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div className="container">
+            <div className="navbar-menu">
+                <div className="navbar-end">
+                    <NavLink_custom exact to="/" activeClassName="is-active" className="navbar-item">
+                        Home
+                    </NavLink_custom>
+                    <NavLink_custom exact to="/board" activeClassName="is-active" className="navbar-item">
+                        Board
+                    </NavLink_custom>
+                    <NavLink_custom exact to="/profile" activeClassName="is-active" className="navbar-item">
+                        Profile
+                    </NavLink_custom>
+                    <NavLink_custom exact to="/login" activeClassName="is-active" className="navbar-item">
+                        Login
+                    </NavLink_custom>
+                    <NavLink_custom exact to="/register" activeClassName="is-active" className="navbar-item">
+                        Register
+                    </NavLink_custom>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <Routing />
+</Container_App>
   );
 }
 

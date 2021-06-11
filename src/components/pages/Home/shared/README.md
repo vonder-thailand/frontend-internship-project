@@ -1,0 +1,1 @@
+folder shared ในเเต่ละ subfolders ของ pages มีไว้สำหรับเก็บ ex.style,interface,enum,assets ที่จะใช้ร่วมกันใน folder นี้
