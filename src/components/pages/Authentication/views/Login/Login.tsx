@@ -17,6 +17,15 @@ function Login() {
     return (
       <div className="App">
         <h1>Login</h1>
+        <div>
+        <form>
+            <input type="email" placeholder="Username"/>
+            <br></br>
+            <input type="password" placeholder="Password"/>
+            <br></br>
+            <button>Login</button>
+        </form>
+        </div>
       </div>
     );
   }
