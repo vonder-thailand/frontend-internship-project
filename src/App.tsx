@@ -28,6 +28,9 @@ const App = () => {
                     <NavLink_custom exact to="/" activeClassName="is-active" className="navbar-item">
                         Home
                     </NavLink_custom>
+                    <NavLink_custom exact to="/test" activeClassName="is-active" className="navbar-item">
+                        Test
+                    </NavLink_custom>
                     <NavLink_custom exact to="/board" activeClassName="is-active" className="navbar-item">
                         Board
                     </NavLink_custom>
