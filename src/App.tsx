@@ -2,11 +2,13 @@ import React from 'react';
 import Routing from './routes/index';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Theme from 'shared/style/theme/theme';
+import GlobalStyle from 'shared/style/theme/globalStyle';
 
 const NavLink_custom = styled(NavLink)`
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: ${({ theme: { fonts } }) => fonts.sans};
     font-weight: bolder;
     height: 50px;
     width: 130px;
@@ -14,12 +16,22 @@ const NavLink_custom = styled(NavLink)`
 `;
 
 const Container_App = styled.div`
+@media (min-width: ${({
+      theme: {
+        breakPoints: { mobileS }
+      }
+    }) => mobileS}) {
+    fontSize: ${({ theme: { fontSizes } }) => `${fontSizes[1]}px` }
+  }
     display: flex;
     flex-direction: column;
 `;
 
 const App = () => {
   return (
+      <>
+      <GlobalStyle/>
+    <Theme>
     <Container_App className="my-app">
     <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
         <div className="container">
@@ -46,6 +58,8 @@ const App = () => {
     </nav>
     <Routing />
 </Container_App>
+</Theme>
+</>
   );
 }
 
