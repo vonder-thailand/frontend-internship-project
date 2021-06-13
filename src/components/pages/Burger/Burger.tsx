@@ -1,8 +1,78 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from './Menu'
+import styled from 'styled-components';
 import { MenuOutlined , CloseOutlined}  from '@ant-design/icons';
-import './Navbar.css';
+
+const Navbar = styled.div`
+    background-color: #060b26;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+`
+const Navmenu = styled.nav`
+    background-color: #060b26;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;
+    &.nav-active{
+      left: 0;
+      transition: 350ms;
+  }
+`
+const Bar = styled(Link)`
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
+`
+const ToggleClose = styled.li`
+    background-color: #060b26;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+`
+const Ul = styled.ul`
+    width: 100%;
+`
+const Listmenu = styled.li`
+  &.nav-text{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    height: 60px;
+  }
+
+  &.nav-text a{
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 18px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+  }
+
+  &.nav-text a:hover{
+    background-color: #1a83ff;
+  }
+
+`
+
+const Span = styled.span`
+    margin-left: 16px;
+`;
 
 const Burger = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -10,30 +80,30 @@ const Burger = () => {
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <div>
- <div className='navbar'>
-          <Link to='#' className='menu-bars'>
+    <Navbar >
+          <Bar to='#'>
             <MenuOutlined  onClick={showSidebar} />
-          </Link>
-        </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' onClick={showSidebar}>
-            <li className='navbar-toggle'>
-              <Link to='#' className='menu-bars'>
+          </Bar>
+        </Navbar>
+        <Navmenu className={sidebar ? 'nav-active' : '' }>
+          <Ul onClick={showSidebar}>
+            <ToggleClose>
+              <Bar to='#'>
               <CloseOutlined />
-              </Link>
-            </li>
+              </Bar>
+            </ToggleClose>
             {Menu.map((item, index) => {
               return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
+                <Listmenu key={index} className={item.cName}>
+                  <Bar to={item.path}>
                     {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
+                    <Span>{item.title}</Span>
+                  </Bar>
+                </Listmenu>
               );
             })}
-          </ul>
-        </nav>
+          </Ul>
+        </Navmenu>
     </div>
   )
 }
