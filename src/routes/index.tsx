@@ -5,6 +5,7 @@ import Board from '../components/pages/Board/views'
 import Profile from '../components/pages/Profile/views';
 import Login from '../components/pages/Authentication/views/Login';
 import Register from '../components/pages/Authentication/views/Register';
+import Test from 'components/pages/Test/views/Test';
 
 class Routing extends Component {
     render() {
@@ -15,6 +16,7 @@ class Routing extends Component {
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
+                <Route exact path="/test" component={Test} />
             </Switch>
         );
     }
