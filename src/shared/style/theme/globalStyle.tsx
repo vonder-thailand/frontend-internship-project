@@ -69,6 +69,18 @@ const GlobalStyle = createGlobalStyle`
     --Gray-200: #9EA0AC;
     --Gray-100: #BEC3CE;
 
+    //FONTS_SIZE
+    --font-56: 56px;
+    --font-32: 32px;
+    --font-28: 28px;
+    --font-22: 22px;
+    --font-20: 20px;
+    --font-18: 18px;
+    --font-16: 16px;
+    --font-14: 14px;
+
+    
+
   }
 `;
  
