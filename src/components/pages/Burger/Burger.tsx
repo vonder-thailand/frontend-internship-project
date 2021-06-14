@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "./Menu";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
-// import { Typography } from "antd";
-
-// const Box = styled.div<{ justify?: "center" | "flex-start"; align: "center" }>`
-//   display: flex;
-//   justify-content: ${({ justify }) => (justify ? justify : "")};
-//   align-items: ${({ align }) => (align ? align : "")};
-// `;
-
-// const Title = styled(Typography.Title)``;
-
-// const Typography = ({ type, children }) => {
-//   switch (type) {
-//     case "title":
-//       return <Title>{children}</Title>;
-
-//     default:
-//       break;
-//   }
-// };
-
-// <Typography type="title">TItle</Typography>
 
 const Navbar = styled.div`
   background-color: #060b26;
@@ -33,7 +12,7 @@ const Navbar = styled.div`
   justify-content: start;
   align-items: center;
 `;
-const Navmenu = styled.nav`
+const Navmenu = styled.nav<{ active: "active" | false }>`
   background-color: #060b26;
   width: 250px;
   height: 100vh;
@@ -43,10 +22,15 @@ const Navmenu = styled.nav`
   top: 0;
   left: -100%;
   transition: 850ms;
-  &.nav-active {
-    left: 0;
-    transition: 350ms;
-  }
+
+  ${({ active }) => {
+    if (active === "active") {
+      return css`
+          left: 0;
+          transition: 350ms;
+      `
+    }
+  }} 
 `;
 const Bar = styled(Link)`
   margin-left: 2rem;
@@ -106,7 +90,7 @@ const Burger = () => {
           <MenuOutlined onClick={showSidebar} />
         </Bar>
       </Navbar>
-      <Navmenu className={sidebar ? "nav-active" : ""}>
+      <Navmenu active={sidebar ? "active": false }>
         <Ul onClick={showSidebar}>
           <ToggleClose>
             <Bar to="#">

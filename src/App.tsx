@@ -1,7 +1,7 @@
 import React from 'react';
 import Routing from './routes/index';
 import styled from 'styled-components';
-import Burger from 'components/pages/Burger';
+import Burger from 'components/pages/Burger/Burger';
 
 const Container_App = styled.div`
     max-width: 600px;
