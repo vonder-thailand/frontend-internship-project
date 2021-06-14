@@ -51,7 +51,7 @@ function Home() {
     const history = useHistory();
 
     return (
-        <div className="App">
+        <div>
             <SearchField>
                 <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 250 }} />
             </SearchField>
