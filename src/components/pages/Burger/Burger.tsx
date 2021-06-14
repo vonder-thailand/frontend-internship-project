@@ -17,9 +17,11 @@ const Navmenu = styled.nav<{ active: 'active' | false }>`
     height: 100vh;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -500%;
+
     transition: 850ms;
     z-index: 100;
 

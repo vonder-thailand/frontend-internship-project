@@ -7,6 +7,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
 `;
 
 const App = () => {
