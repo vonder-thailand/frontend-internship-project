@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect } from 'react'
 import { API_Login_Data } from '../../apis/login.api'
 import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+
 import 'antd/dist/antd.css';
 
 const layout = {
@@ -9,73 +11,87 @@ const layout = {
   wrapperCol: { span: 10 },
 };
 const tailLayout = {
-  wrapperCol: { offset: 8, span: 10 },
+  wrapperCol: { offset: 8, span: 10, },
 };
 
-const Demo = () => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  }};
+const onFinish = (values: any) => {
+  console.log('Success:', values);
+}
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
+const onFinishFailed = (errorInfo: any) => {
+  console.log('Failed:', errorInfo);
+};
 
 function Login() {
   async function getStatictisData() {
-    const response =  API_Login_Data()
-    if(response){
+    const response = API_Login_Data()
+    if (response) {
       console.log((await response).username)
-    }else{
+    } else {
       console.log("error")
     }
   }
   useEffect(() => {
     getStatictisData()
-  },[])
-    return (
-      <div className="App">
-        <div>
-          <h1>Hi, user</h1>
-        </div>
-        <Form
-      {...layout}
-      name="basic"
-      initialValues={{ remember: true }}
-      // onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+  }, [])
+  return (
+
+      <Form
+        name="normal_login"
+        className="login-form"
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
       >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your Username!',
+            },
+          ]}
+        >
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="อีเมล" />
+        </Form.Item>
+        <Form.Item
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your Password!',
+            },
+          ]}
+        >
+          <Input
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="password"
+            placeholder="รหัสผ่าน"
+          />
+        </Form.Item>
+        <Form.Item>
+          <Form.Item name="remember" valuePropName="checked" noStyle>
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input.Password />
-      </Form.Item>
+        </Form.Item>
 
-      <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="login-form-button">
+            เข้าสู่ระบบ
+          </Button>
+          <br />
+          <Button type="primary" htmlType="submit" className="login-form-button">
+            Contnue as Guest
+          </Button>
+          <br />
+          ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
+        </Form.Item>
+      </Form>
 
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
   );
-      </div>
-
-    );
-  }
+}
 
 export default Login;
-  
+
