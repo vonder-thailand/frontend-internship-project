@@ -1,0 +1,93 @@
+import styled from 'styled-components';
+import { Space, Button, Col, List } from 'antd';
+
+export const SearchField = styled(Space)`
+    margin-top: 20px;
+    font-family: 'Kanit', sans-serif;
+    margin-left: 150px;
+`;
+
+export const TagFilter = styled.div`
+    font-family: 'Kanit', sans-serif;
+    border-color: black;
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+`;
+
+export const ButtonTagFilter = styled(Button)`
+    font-family: 'Kanit', sans-serif;
+    font-weight: bolder;
+    color: black;
+    opacity: 0.8;
+    letter-spacing: 0.1rem;
+    &:hover {
+        letter-spacing: 0.2rem;
+    }
+`;
+
+export const ImageTestPage = styled.div`
+    height: 30vh;
+    width: 800px;
+    margin-left: 300px;
+    transition: 0.5s ease;
+    display: inline-block;
+    background-color: #7879f1;
+    &:hover {
+        background-color: #efefef;
+        color: black;
+        cursor: pointer;
+        transition: transform 5s;
+        transition: 500ms ease-in-out;
+    }
+`;
+
+export const TextOnImageTest = styled.div`
+    font-family: 'Kanit', sans-serif;
+    font-weight: bolder;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    transform: translateY(200%);
+`;
+export const TextBoard = styled(Col)`
+    font-family: 'Kanit', sans-serif;
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+`;
+
+export const ButtonSeeAllBoard = styled(Button)`
+    background-color: #7879f1;
+    color: white;
+    height: 5vh;
+    width: 100px;
+    font-weight: 600;
+    margin-left: 400px;
+    font-size: 15px;
+`;
+
+export const ListBoard = styled(List)`
+    margin-left: 50px;
+    font-weight: bolder;
+`;
+
+export const ListItemBoard = styled(List.Item)`
+    margin-left: 50px;
+    font-family: 'Kanit', sans-serif;
+`;
+
+export const ButtonCreateBoard = styled(Button)`
+    background-color: #252525;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+    position: fixed;
+    padding-bottom: 50px;
+    bottom: 40px;
+    right: 100px;
+    width: 60px;
+    height: 50px;
+`;
