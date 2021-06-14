@@ -22,29 +22,20 @@ export const ButtonTagFilter = styled(Button)`
     color: black;
     opacity: 0.8;
     letter-spacing: 0.1rem;
-
     &:hover {
-        background-color: black;
-        color: black;
-        cursor: pointer;
-        transition: transform 0.2s;
-        transition: 100ms ease-in-out;
         letter-spacing: 0.2rem;
     }
 `;
 
-export const ImageTestPage = styled.img`
+export const ImageTestPage = styled.div`
     height: 30vh;
     width: 800px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
     margin-left: 300px;
     transition: 0.5s ease;
     display: inline-block;
-
+    background-color: #7879f1;
     &:hover {
-        background-color: blue;
+        background-color: #efefef;
         color: black;
         cursor: pointer;
         transition: transform 5s;
@@ -52,6 +43,14 @@ export const ImageTestPage = styled.img`
     }
 `;
 
+export const TextOnImageTest = styled.div`
+    font-family: 'Kanit', sans-serif;
+    font-weight: bolder;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    transform: translateY(200%);
+`;
 export const TextBoard = styled(Col)`
     font-family: 'Kanit', sans-serif;
     font-weight: bolder;
@@ -70,8 +69,25 @@ export const ButtonSeeAllBoard = styled(Button)`
     font-size: 15px;
 `;
 
+export const ListBoard = styled(List)`
+    margin-left: 50px;
+    font-weight: bolder;
+`;
+
 export const ListItemBoard = styled(List.Item)`
     margin-left: 50px;
     font-family: 'Kanit', sans-serif;
+`;
+
+export const ButtonCreateBoard = styled(Button)`
+    background-color: #252525;
+    color: white;
     font-weight: bolder;
+    font-size: 30px;
+    position: fixed;
+    padding-bottom: 50px;
+    bottom: 40px;
+    right: 100px;
+    width: 60px;
+    height: 50px;
 `;

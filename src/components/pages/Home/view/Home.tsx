@@ -1,35 +1,22 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { API_getStatistics } from '../apis/home.api';
 import { useHistory } from 'react-router-dom';
 import { Input, Row, List } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-import { SearchField, TagFilter, ButtonTagFilter, ImageTestPage, TextBoard, ButtonSeeAllBoard, ListItemBoard } from '../shared/homepage.styles';
+import { MessageOutlined, LikeOutlined, UserOutlined } from '@ant-design/icons';
+import { SearchField, TagFilter, ButtonTagFilter, ImageTestPage, TextBoard, ButtonSeeAllBoard, ListItemBoard, ListBoard, TextOnImageTest, ButtonCreateBoard } from '../shared/homepage.styles';
+import { tagsData, IListData, IIconText } from '../shared/home.interface';
 
+//
+// ─── Set variable ───────────────────────────────────────────────────────────────────
+//
 const { Search } = Input;
 const onSearch = (value: any) => console.log(value);
-
-const tagsData = ['Linguistic', 'Mathematical', 'Musical', 'Visual-Spatial', 'Naturist', 'Bodily-Kinesthetic', 'Interpersonal', 'Intrapersonal'];
-
-//
-// ─── Set interface ───────────────────────────────────────────────────────────────────
-//
-interface IListData {
-    href: string;
-    title: string;
-    avatar: string;
-    image: string;
-    description: string;
-}
-interface IIconText {
-    icon: React.ForwardRefExoticComponent<any>;
-    text: string;
-}
 
 const listData: Array<IListData> = [];
 for (let i = 1; i < 10; i++) {
     listData.push({
-        href: 'https://ant.design',
+        href: '/board',
         title: `แนะนำกระทู้เรียน ${i}`,
         avatar: 'https://scontent.fbkk12-1.fna.fbcdn.net/v/t1.6435-9/59064493_437047506858059_6394542383404417024_n.png?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=aMf0eSHrFroAX87NAZJ&tn=CeGl5CLqXgfyZu7t&_nc_ht=scontent.fbkk12-1.fna&oh=2b1b5b5642904a40a58edd5a57f17a7e&oe=60CB2D93',
         image: 'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png',
@@ -70,19 +57,19 @@ function Home() {
             </SearchField>
             <TagFilter className="site-button-ghost-wrapper">
                 <ButtonTagFilter type="primary" ghost>
-                    {tagsData[0]}
+                    {tagsData.tagOne}
                 </ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[1]}</ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[2]}</ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[3]}</ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[4]}</ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[5]}</ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[6]}</ButtonTagFilter>
-                <ButtonTagFilter ghost>{tagsData[7]}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagTwo}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagThree}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagFour}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagFive}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagSix}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagSeven}</ButtonTagFilter>
+                <ButtonTagFilter ghost>{tagsData.tagEight}</ButtonTagFilter>
             </TagFilter>
-            <div>
-                <ImageTestPage className="center" onClick={() => history.push('/test')} src="https://miro.medium.com/max/1838/1*QOXeKdR7RUeD4TvC070sbA.png" />
-            </div>
+            <ImageTestPage className="center" onClick={() => history.push('/test')}>
+                <TextOnImageTest>มาทำแบบทดสอบกันเถอะ !</TextOnImageTest>
+            </ImageTestPage>
             <Row>
                 <TextBoard xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
                     กระทู้
@@ -91,7 +78,7 @@ function Home() {
                     <ButtonSeeAllBoard onClick={() => history.push('/board')}>ดูทั้งหมด</ButtonSeeAllBoard>
                 </TextBoard>
             </Row>
-            <List
+            <ListBoard
                 itemLayout="vertical"
                 size="large"
                 pagination={{
@@ -101,11 +88,11 @@ function Home() {
                     pageSize: 3,
                 }}
                 dataSource={listData}
-                renderItem={(item) => (
+                renderItem={(item: any) => (
                     <ListItemBoard
                         key={item.title}
                         actions={[
-                            <IconText icon={StarOutlined} text="199" key="list-vertical-star-o" />,
+                            <IconText icon={UserOutlined} text="username" key="list-vertical-star-o" />,
                             <IconText icon={LikeOutlined} text="150" key="list-vertical-like-o" />,
                             <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
                         ]}
@@ -116,6 +103,9 @@ function Home() {
                     </ListItemBoard>
                 )}
             />
+            <ButtonCreateBoard onClick={() => history.push('/board')} shape="circle">
+                +
+            </ButtonCreateBoard>
         </div>
     );
 }
