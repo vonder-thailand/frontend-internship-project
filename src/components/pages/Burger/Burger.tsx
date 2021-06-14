@@ -1,49 +1,71 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu } from './Menu'
-import styled from 'styled-components';
-import { MenuOutlined , CloseOutlined}  from '@ant-design/icons';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu } from "./Menu";
+import styled from "styled-components";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+// import { Typography } from "antd";
+
+// const Box = styled.div<{ justify?: "center" | "flex-start"; align: "center" }>`
+//   display: flex;
+//   justify-content: ${({ justify }) => (justify ? justify : "")};
+//   align-items: ${({ align }) => (align ? align : "")};
+// `;
+
+// const Title = styled(Typography.Title)``;
+
+// const Typography = ({ type, children }) => {
+//   switch (type) {
+//     case "title":
+//       return <Title>{children}</Title>;
+
+//     default:
+//       break;
+//   }
+// };
+
+// <Typography type="title">TItle</Typography>
 
 const Navbar = styled.div`
-    background-color: #060b26;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-`
+  background-color: #060b26;
+  height: 80px;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+`;
 const Navmenu = styled.nav`
-    background-color: #060b26;
-    width: 250px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    transition: 850ms;
-    &.nav-active{
-      left: 0;
-      transition: 350ms;
+  background-color: #060b26;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  &.nav-active {
+    left: 0;
+    transition: 350ms;
   }
-`
+`;
 const Bar = styled(Link)`
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-`
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+`;
 const ToggleClose = styled.li`
-    background-color: #060b26;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-`
+  background-color: #060b26;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+`;
 const Ul = styled.ul`
-    width: 100%;
-`
+  width: 100%;
+`;
 const Listmenu = styled.li`
-  &.nav-text{
+  &.nav-text {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -52,7 +74,7 @@ const Listmenu = styled.li`
     height: 60px;
   }
 
-  &.nav-text a{
+  &.nav-text a {
     text-decoration: none;
     color: #f5f5f5;
     font-size: 18px;
@@ -64,14 +86,13 @@ const Listmenu = styled.li`
     border-radius: 4px;
   }
 
-  &.nav-text a:hover{
+  &.nav-text a:hover {
     background-color: #1a83ff;
   }
-
-`
+`;
 
 const Span = styled.span`
-    margin-left: 16px;
+  margin-left: 16px;
 `;
 
 const Burger = () => {
@@ -80,32 +101,32 @@ const Burger = () => {
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <div>
-    <Navbar >
-          <Bar to='#'>
-            <MenuOutlined  onClick={showSidebar} />
-          </Bar>
-        </Navbar>
-        <Navmenu className={sidebar ? 'nav-active' : '' }>
-          <Ul onClick={showSidebar}>
-            <ToggleClose>
-              <Bar to='#'>
+      <Navbar>
+        <Bar to="#">
+          <MenuOutlined onClick={showSidebar} />
+        </Bar>
+      </Navbar>
+      <Navmenu className={sidebar ? "nav-active" : ""}>
+        <Ul onClick={showSidebar}>
+          <ToggleClose>
+            <Bar to="#">
               <CloseOutlined />
-              </Bar>
-            </ToggleClose>
-            {Menu.map((item, index) => {
-              return (
-                <Listmenu key={index} className={item.cName}>
-                  <Bar to={item.path}>
-                    {item.icon}
-                    <Span>{item.title}</Span>
-                  </Bar>
-                </Listmenu>
-              );
-            })}
-          </Ul>
-        </Navmenu>
+            </Bar>
+          </ToggleClose>
+          {Menu.map((item, index) => {
+            return (
+              <Listmenu key={index} className={item.cName}>
+                <Bar to={item.path}>
+                  {item.icon}
+                  <Span>{item.title}</Span>
+                </Bar>
+              </Listmenu>
+            );
+          })}
+        </Ul>
+      </Navmenu>
     </div>
-  )
-}
+  );
+};
 
 export default Burger;
