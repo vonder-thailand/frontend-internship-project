@@ -56,8 +56,8 @@ function Profile() {
                   <MoveCenter>
                   <h1>ข้อมูลส่วนตัว</h1>
                   <img src={cred.pic} width={80}></img>
-                  </MoveCenter>
                   <h1>{cred.username}</h1>
+                  </MoveCenter>
                   <h2>ชื่อ-นามสกุล : {cred.name} {cred.surname}</h2>
                   <h2>อีเมล : {cred.email}</h2>
                   <Link to='/editProfile'><button>แก้ไขข้อมูลส่วนตัว</button></Link>
