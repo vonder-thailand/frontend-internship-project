@@ -1,6 +1,6 @@
 import TestAnimation from './TestAnimation';
 import ButtonLoadingStart from './ButttonLoadingStart';
-import { TextHeader, TextDescription, Container } from '../../shared/testPage.styled';
+import { TextHeader, TextDescription, Container } from '../../shared/styles/testPage.styled';
 
 function TestStartPage() {
     return (

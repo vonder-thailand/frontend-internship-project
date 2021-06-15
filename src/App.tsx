@@ -12,10 +12,12 @@ const Container = styled.div`
 
 const App = () => {
     return (
-        <Container>
-            <Burger />
-            <Routing />
-        </Container>
+        <>
+            <Container>
+                <Burger />
+                <Routing />
+            </Container>
+        </>
     );
 };
 
