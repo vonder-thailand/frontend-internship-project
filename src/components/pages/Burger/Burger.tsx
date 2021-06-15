@@ -31,7 +31,7 @@ const Navmenu = styled.nav<{ active: 'active' | false }>`
             return css`
                 left: 0;
                 transition: 350ms;
-                border-top-right-radius: 20px;
+                border-top-right-radius: 30px;
             `;
         }
     }}
@@ -48,7 +48,7 @@ const ToggleClose = styled.li`
     display: flex;
     justify-content: start;
     align-items: center;
-    border-top-right-radius: 20px;
+    border-top-right-radius: 30px;
 `;
 const Ul = styled.ul`
     width: 100%;
