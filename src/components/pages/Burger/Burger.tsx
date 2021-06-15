@@ -1,18 +1,29 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from './Menu';
+import { ListMenu } from './ListMenu';
 import styled, { css } from 'styled-components';
-import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import { MenuOutlined, CloseOutlined , UserOutlined ,LoginOutlined  } from '@ant-design/icons';
+import { Layout, Menu , Avatar, Button ,Descriptions} from 'antd';
 
-const Navbar = styled.div`
+const { Header, Sider} = Layout;
+
+const Navbar = styled(Header)`
     background-color: #9696f1;
     height: 80px;
     display: flex;
     justify-content: start;
-    align-items: center;
-    z-index: 99;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    max-width: 600px;
 `;
-const Navmenu = styled.nav<{ active: 'active' | false }>`
+const Bar = styled(Link)`
+    margin-top: 10px;
+    font-size: 2rem;
+    background: none;
+`;
+
+const Navmenu = styled(Menu)<{ active: 'active' | false }>`
     background-color: #9696f1;
     width: 250px;
     height: 100vh;
@@ -21,8 +32,8 @@ const Navmenu = styled.nav<{ active: 'active' | false }>`
     margin: 0 auto;
     position: absolute;
     top: 0;
-    left: -500%;
-    box-shadow: 5px 5px 5px #8080d4;
+    left: -100vh;
+    box-shadow: 5px 5px 5px #8080d4 !important;
     transition: 850ms;
     z-index: 100;
 
@@ -31,25 +42,12 @@ const Navmenu = styled.nav<{ active: 'active' | false }>`
             return css`
                 left: 0;
                 transition: 350ms;
-                border-top-right-radius: 30px;
+                border-top-right-radius: 30px ;
             `;
         }
     }}
 `;
-const Bar = styled(Link)`
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-`;
-const ToggleClose = styled.li`
-    background-color: #9696f1;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    border-top-right-radius: 30px;
-`;
+
 const Ul = styled.ul`
     width: 100%;
 `;
@@ -58,7 +56,7 @@ const Listmenu = styled.li`
         display: flex;
         justify-content: start;
         align-items: center;
-        padding: 8px 0px 8px 16px;
+        padding: 8px 0px 8px 0px;
         list-style: none;
         height: 60px;
     }
@@ -67,11 +65,11 @@ const Listmenu = styled.li`
         text-decoration: none;
         color: #ffffff;
         font-size: 18px;
-        width: 95%;
+        width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
-        padding: 0 16px;
+        padding: 0 60px;
         border-radius: 4px;
     }
 
@@ -84,6 +82,28 @@ const Listmenu = styled.li`
 const Span = styled.span`
     margin-left: 16px;
 `;
+const Avataruser = styled.div`
+    margin: 30px 0px 10px 0px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+const AvatarName = styled.span`
+    margin: 20px 0 20px 0 ;
+    font-size: 22px;
+    font-weight: 300;
+
+`
+
+const LoginBtn = styled(Button)`
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px 0 0 0 ;
+`
 
 const Overlay = styled.div<{ active: 'active' | false }>`
     ${({ active }) => {
@@ -93,35 +113,55 @@ const Overlay = styled.div<{ active: 'active' | false }>`
   display: block;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: #0c1066;
   opacity: 0.3;
-  z-index: 1;
+  z-index: 2;
   `
     }}}
 `
 
 const Burger = () => {
     const [sidebar, setSidebar] = useState(false);
-
     const showSidebar = () => setSidebar(!sidebar);
+
+    const [visible, setVisble] = useState(false);
+    const loginAccess = () => setVisble(true);
+    const notAccess = () => setVisble(false);
+
+
     return (
         <div>
             <Navbar>
                 <Bar to="#">
-                    <MenuOutlined style={{ color: '#ffffff' }} onClick={showSidebar} />
+                    <MenuOutlined style={{ color: '#ffffff' }} onClick={showSidebar} />                   
                 </Bar>
             </Navbar>
-            <Overlay active={sidebar ? 'active' : false}/>
+
+            <Overlay active={sidebar ? 'active' : false} onClick={showSidebar}/>
+
             <Navmenu active={sidebar ? 'active' : false}>
                 <Ul onClick={showSidebar}>
-                    <ToggleClose>
-                        <Bar to="#">
-                            <CloseOutlined style={{ color: '#ffffff' }} />
-                        </Bar>
-                    </ToggleClose>
-                    {Menu.map((item, index) => {
+
+                    <Avataruser>
+                    <Avatar size={75} icon={<UserOutlined />} />
+                    <AvatarName> Guest #000</AvatarName>
+                    {
+                        visible ? null : <LoginBtn type="primary" onClick={loginAccess}>Login</LoginBtn>
+                    }
+                    
+                    </Avataruser>
+                    {
+        visible &&
+        <Listmenu className="nav-text">
+            <Bar to="/profile">
+                <UserOutlined />
+                <Span> Profile </Span>
+            </Bar>
+        </Listmenu>
+        }
+                    {ListMenu.map((item, index) => {
                         return (
                             <Listmenu key={index} className={item.cName}>
                                 <Bar to={item.path}>
@@ -131,6 +171,15 @@ const Burger = () => {
                             </Listmenu>
                         );
                     })}
+                {
+                    visible &&
+                    <Listmenu className="nav-text">
+                        <Bar to="#" onClick={notAccess}>
+                            <LoginOutlined />
+                            <Span> Logout</Span>
+                        </Bar>
+                    </Listmenu>
+                }
                 </Ul>
             </Navmenu>
         </div>
