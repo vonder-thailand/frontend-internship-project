@@ -1,4 +1,4 @@
-import { BoxAnimation, TextInBoxAnimation } from '../shared/testPage.styled';
+import { BoxAnimation, TextInBoxAnimation } from '../../shared/testPage.styled';
 
 function TestAnimation() {
     return (

@@ -5,7 +5,7 @@ import Board from 'components/pages/Board/views/Board';
 import Profile from 'components/pages/Profile/views/profile';
 import Login from 'components/pages/Authentication/views/Login/Login';
 import Register from 'components/pages/Authentication/views/Register/Register';
-import Test from 'components/pages/Test/views/Test';
+import Test from 'components/pages/Test/views/TestStartPage/Test';
 import editProfile from 'components/pages/Profile/views/editProfile';
 
 class Routing extends Component {

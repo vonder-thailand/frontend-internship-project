@@ -32,6 +32,7 @@ export const ImageTestPage = styled.div`
     transition: 0.5s ease;
     margin: 0 auto;
     background-color: #7879f1;
+    border-radius: 10px;
     &:hover {
         background-color: #efefef;
         color: black;

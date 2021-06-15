@@ -1,6 +1,6 @@
 import { Spin } from 'antd';
 import { useState } from 'react';
-import { ButtonLoading, IsLoadingSpinner, TextIsLoading } from '../shared/testPage.styled';
+import { ButtonLoading, IsLoadingSpinner, TextIsLoading } from '../../shared/testPage.styled';
 
 function ButtonLoadingStart() {
     const [isLoading, setLoading] = useState(false);

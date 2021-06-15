@@ -1,8 +1,8 @@
 import TestAnimation from './TestAnimation';
 import ButtonLoadingStart from './ButttonLoadingStart';
-import { TextHeader, TextDescription, Container } from '../shared/testPage.styled';
+import { TextHeader, TextDescription, Container } from '../../shared/testPage.styled';
 
-function Test() {
+function TestStartPage() {
     return (
         <Container>
             <TextHeader>แบบทดสอบความถนัด</TextHeader>
@@ -16,4 +16,4 @@ function Test() {
     );
 }
 
-export default Test;
+export default TestStartPage;
