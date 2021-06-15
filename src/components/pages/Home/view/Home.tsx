@@ -36,7 +36,7 @@ function Home() {
     async function getStatictisData() {
         const response = await API_getStatistics();
         if (response.success) {
-            console.log(response.data);
+            console.log(response.data.title);
         } else {
             console.log('error');
         }
@@ -51,7 +51,7 @@ function Home() {
     const history = useHistory();
 
     return (
-        <div className="App">
+        <div>
             <SearchField>
                 <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 250 }} />
             </SearchField>

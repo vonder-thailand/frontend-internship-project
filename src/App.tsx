@@ -1,22 +1,22 @@
-/* eslint-disable react/jsx-pascal-case */
-import React from 'react';
 import Routing from './routes/index';
 import styled from 'styled-components';
 import Burger from 'components/pages/Burger/Burger';
 
-const Container_App = styled.div`
+const Container = styled.div`
     max-width: 600px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
 `;
 
 const App = () => {
-  return (
-    <Container_App className="my-app">
-    <Burger />
-    <Routing />
-</Container_App>
-  );
-}
+    return (
+        <Container>
+            <Burger />
+            <Routing />
+        </Container>
+    );
+};
 
 export default App;

@@ -4,7 +4,6 @@ import { Space, Button, Col, List } from 'antd';
 export const SearchField = styled(Space)`
     margin-top: 20px;
     font-family: 'Kanit', sans-serif;
-    margin-left: 150px;
 `;
 
 export const TagFilter = styled.div`
@@ -13,7 +12,6 @@ export const TagFilter = styled.div`
     font-weight: bolder;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 200px;
 `;
 
 export const ButtonTagFilter = styled(Button)`
@@ -29,10 +27,10 @@ export const ButtonTagFilter = styled(Button)`
 
 export const ImageTestPage = styled.div`
     height: 30vh;
-    width: 800px;
-    margin-left: 300px;
+    width: 500px;
+    flex-direction: column;
     transition: 0.5s ease;
-    display: inline-block;
+    margin: 0 auto;
     background-color: #7879f1;
     &:hover {
         background-color: #efefef;
@@ -57,6 +55,7 @@ export const TextBoard = styled(Col)`
     font-size: 25px;
     margin-top: 20px;
     margin-bottom: 10px;
+    flex-direction: column;
 `;
 
 export const ButtonSeeAllBoard = styled(Button)`
@@ -65,13 +64,15 @@ export const ButtonSeeAllBoard = styled(Button)`
     height: 5vh;
     width: 100px;
     font-weight: 600;
-    margin-left: 400px;
     font-size: 15px;
+    right: 100px;
+    left: 200px;
 `;
 
 export const ListBoard = styled(List)`
     margin-left: 50px;
     font-weight: bolder;
+    margin: 0 auto;
 `;
 
 export const ListItemBoard = styled(List.Item)`
@@ -87,7 +88,7 @@ export const ButtonCreateBoard = styled(Button)`
     position: fixed;
     padding-bottom: 50px;
     bottom: 40px;
-    right: 100px;
+    right: 150px;
     width: 60px;
     height: 50px;
 `;
