@@ -28,26 +28,26 @@ const Register = () => {
   return (
     <div>
       <MoveCenter>
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-          <Form.Item name={['user', 'first_name']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }} >
+        <Form name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+          <Form.Item name={['user', 'first_name']} rules={[{ required: true }]} >
             <Input placeholder="ชื่อจริง" style={{ width: 300 }} />
           </Form.Item>
-          <Form.Item name={['user', 'last_name']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }} >
+          <Form.Item name={['user', 'last_name']} rules={[{ required: true }]} >
             <Input placeholder="นามสกุล" style={{ width: 300 }} />
           </Form.Item>
-          <Form.Item name={['user', 'username']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }} >
+          <Form.Item name={['user', 'username']} rules={[{ required: true }]} >
             <Input placeholder="ชื่อผู้ใช้" style={{ width: 300 }} />
           </Form.Item>
-          <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
+          <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]} >
             <Input placeholder="อีเมล" style={{ width: 300 }} />
           </Form.Item>
-          <Form.Item name={['user', 'password']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
+          <Form.Item name={['user', 'password']} rules={[{ required: true }]} >
             <Input.Password placeholder="รหัสผ่าน" style={{ width: 300 }} />
           </Form.Item>
-          <Form.Item name={['user', 'repeat_password']} rules={[{ required: true, message: 'Please input your password!' }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
+          <Form.Item name={['user', 'repeat_password']} rules={[{ required: true, message: 'Please input your password!' }]} >
             <Input.Password placeholder="ยืนยันรหัสผ่าน" style={{ width: 300 }} />
           </Form.Item>
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
+          <Form.Item>
             <Button type="primary" htmlType="submit" style={{ width: 300 }}>
               Submit
             </Button>
