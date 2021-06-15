@@ -5,6 +5,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     max-width: 600px;
+    height: 100vh;
+    overflow-y: scroll;
   }
   html{
     //COLORS

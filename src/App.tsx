@@ -10,16 +10,19 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    z-index: 0;
 `;
+
 
 const App = () => {
     return (
         <>
-        <Flexbox.Center>
+        {/* <Flexbox.Box align="center" justify="center">
             <Typography.Body>5555555</Typography.Body>
-        </Flexbox.Center>
-        <Container>
+        </Flexbox.Box>
+         */}
             <Burger />
+        <Container>
             <Routing />
         </Container>
         </>

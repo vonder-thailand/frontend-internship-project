@@ -27,6 +27,7 @@ const Center: React.FC<any> = (props) => {
 
   const Flexbox = {
     Center,
+    Box
   };
   
   export default Flexbox;
