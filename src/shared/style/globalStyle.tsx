@@ -79,6 +79,11 @@ const GlobalStyle = createGlobalStyle`
     --font-16: 16px;
     --font-14: 14px;
 
+    //BREAKPOINT
+    --mobile-small: 300px;
+    --mobile-medium: 400px;
+    --mobile-large: 500px ;
+    
     
 
   }
