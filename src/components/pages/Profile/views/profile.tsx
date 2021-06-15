@@ -1,37 +1,71 @@
 import { Link } from 'react-router-dom';
 //import * as data from '../mocks/user.json';
-import useSWR from 'swr'
-import axios from 'axios';
+// import useSWR from 'swr';
+// import axios from 'axios';
+import { API_Profile_Data } from '../apis/profile.api';
+import { Layout } from 'antd';
+import { useEffect } from 'react';
+import { IProfile } from '../shared/login.interface';
+import { useState } from 'react';
+import styled from 'styled-components';
 
+const { Content } = Layout;
 
-  
 function Profile() {
-    //const fetcher = (url: string) => axios.get(url).then(res => res.data);
-    const fetcher = async (url: string) => {
-      const { data } = await axios.get(url);
-      if (data) {
-        return data;
-      }
-    };
-    const { data , error} = useSWR(`https://jsonplaceholder.typicode.com/todos/1`,fetcher);
-    console.log(data , error);
-
-    if(error){
-      return <div>Error....</div>
+    const [cred, setCred] = useState<IProfile>({ name: '' , surname: '' , email: '' , result: '' , pic: '' , username: ''});
+    async function getStatisticData() {
+        const response = await API_Profile_Data();
+        if (response) {
+            console.log(response.name);
+            setCred((prevState) => ({ ...prevState , name: response.name , surname: response.surname , email: response.email , result: response.result , pic: response.pic , username: response.username}))
+        } else {
+            console.log('error');
+        }
     }
-    if(!data){
-      return <div>Loading...</div>
-    }
+    useEffect(() => {
+      getStatisticData();
+    }, [])
 
+    
+
+    //const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+    // const fetcher = async (url: string) => {
+    //     const { data } = await axios.get(url);
+    //     if (data) {
+    //         return data;
+    //     }
+    // };
+    // const { data, error } = useSWR(`https://jsonplaceholder.typicode.com/todos/1`, fetcher);
+    // console.log(data, error);
+
+    // if(error){
+    //   return <div>Error....</div>
+    // }
+    // if(!data){
+    //   return <div>Loading...</div>
+    // }
+    const MoveCenter = styled.div`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `
     return (
-      <div className="App">
-        <h1>ข้อมูลส่วนตัว</h1>
-        <h2>ชื่อ-นามสกุล : {data.title}</h2>
-        <h2>อีเมล : {data.userId}</h2>
-        <Link to="/editProfile"><button>แก้ไขข้อมูลส่วนตัว</button></Link>
-        <h2>ผลลัพธ์จากแบบทดสอบ : {data.id}</h2>
-      </div>
+        <div className="App">
+            <Layout>
+                <Content>
+                  <MoveCenter>
+                  <h1>ข้อมูลส่วนตัว</h1>
+                  <img src={cred.pic} width={80}></img>
+                  </MoveCenter>
+                  <h1>{cred.username}</h1>
+                  <h2>ชื่อ-นามสกุล : {cred.name} {cred.surname}</h2>
+                  <h2>อีเมล : {cred.email}</h2>
+                  <Link to='/editProfile'><button>แก้ไขข้อมูลส่วนตัว</button></Link>
+                  <h2>ผลลัพธ์จากแบบทดสอบ : {cred.result}</h2>
+                </Content>
+            </Layout>
+        </div>
     );
-  }
+}
 
 export default Profile;
