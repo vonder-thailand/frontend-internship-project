@@ -10,6 +10,7 @@ const Navbar = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
+    z-index: 99;
 `;
 const Navmenu = styled.nav<{ active: 'active' | false }>`
     background-color: #9696f1;
@@ -21,7 +22,7 @@ const Navmenu = styled.nav<{ active: 'active' | false }>`
     position: absolute;
     top: 0;
     left: -500%;
-
+    box-shadow: 5px 5px 5px #8080d4;
     transition: 850ms;
     z-index: 100;
 
@@ -30,6 +31,7 @@ const Navmenu = styled.nav<{ active: 'active' | false }>`
             return css`
                 left: 0;
                 transition: 350ms;
+                border-top-right-radius: 20px;
             `;
         }
     }}
@@ -46,6 +48,7 @@ const ToggleClose = styled.li`
     display: flex;
     justify-content: start;
     align-items: center;
+    border-top-right-radius: 20px;
 `;
 const Ul = styled.ul`
     width: 100%;
@@ -82,6 +85,23 @@ const Span = styled.span`
     margin-left: 16px;
 `;
 
+const Overlay = styled.div<{ active: 'active' | false }>`
+    ${({ active }) => {
+        if (active === 'active') {
+            return css`
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0c1066;
+  opacity: 0.3;
+  z-index: 1;
+  `
+    }}}
+`
+
 const Burger = () => {
     const [sidebar, setSidebar] = useState(false);
 
@@ -93,6 +113,7 @@ const Burger = () => {
                     <MenuOutlined style={{ color: '#ffffff' }} onClick={showSidebar} />
                 </Bar>
             </Navbar>
+            <Overlay active={sidebar ? 'active' : false}/>
             <Navmenu active={sidebar ? 'active' : false}>
                 <Ul onClick={showSidebar}>
                     <ToggleClose>
