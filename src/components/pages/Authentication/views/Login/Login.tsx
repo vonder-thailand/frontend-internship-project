@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { API_Login_Data } from '../../apis/login.api'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Layout, Row, Col, Card } from 'antd';
+import styled from 'styled-components';
 
 import 'antd/dist/antd.css';
 
@@ -23,7 +23,11 @@ const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
 
-const { Header, Footer, Content } = Layout;
+const MoveCeneter = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 function Login() {
   async function getStatictisData() {
@@ -39,25 +43,9 @@ function Login() {
   }, [])
   return (
 
-    <Form
-    name="normal_login"
-    className="login-form"
-    initialValues={{
-      remember: true,
-    }}
-    onFinish={onFinish}
-    >
-
-      <Layout>
-        <Header style={{ textAlign: 'center' }}>
-          <h1 style={{ color: '#ffffff' }}>
-            เข้าสู่ระบบ
-          </h1>
-        </Header>
-      </Layout>
-
-      <Layout>
-        <Content>
+    <div>
+      <MoveCeneter>
+        <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish} >
           <Form.Item
             name="email"
             rules={[
@@ -96,21 +84,12 @@ function Login() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              Contnue as Guest
-            </Button>
-          </Form.Item>
-        </Content>
-      </Layout>
-
-      <Layout>
-        <Footer>
-          <Form.Item>
             ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
           </Form.Item>
-        </Footer>
-      </Layout>
-    </Form>
+        </Form>
+      </MoveCeneter>
+    </div>
+
   );
 }
 
