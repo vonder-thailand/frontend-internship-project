@@ -28,10 +28,11 @@ const Navmenu = styled(Menu)<{ active: 'active' | false }>`
     background-color: #9696f1;
     width: 250px;
     height: 100vh;
-    display: flex;
+
     justify-content: center;
     margin: 0 auto;
-    position: absolute;
+    display: flex;
+    position: fixed;
     top: 0;
     left: -100vh;
     box-shadow: 5px 5px 5px #8080d4 !important;
@@ -41,7 +42,7 @@ const Navmenu = styled(Menu)<{ active: 'active' | false }>`
     ${({ active }) => {
         if (active === 'active') {
             return css`
-                left: 0;
+                left: 0%;
                 transition: 350ms;
                 border-top-right-radius: 30px ;
             `;
@@ -133,7 +134,7 @@ const Burger = () => {
 
 
     return (
-        <div>
+        <>
             <Navbar>
                 <Bar to="#">
                     <MenuOutlined style={{ color: '#ffffff' }} onClick={showSidebar} />                   
@@ -183,7 +184,7 @@ const Burger = () => {
                 }
                 </Ul>
             </Navmenu>
-        </div>
+        </>
     );
 };
 
