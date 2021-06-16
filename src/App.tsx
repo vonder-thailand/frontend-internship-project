@@ -8,7 +8,6 @@ const Container = styled.div`
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin: 0 auto;
 `;
 const MainContent = styled(Content)`
