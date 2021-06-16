@@ -7,7 +7,7 @@ import { Layout, Form, Button } from 'antd';
 import { useEffect } from 'react';
 import { IProfile } from '../shared/profile.interface';
 import { useState } from 'react';
-import styled from 'styled-components';
+import { Container , MoveCenter , AlignRight } from '../shared/profile.styles';
 
 const { Content } = Layout;
 
@@ -25,38 +25,6 @@ function Profile() {
     useEffect(() => {
         getStatisticData();
     }, []);
-
-    //const fetcher = (url: string) => axios.get(url).then((res) => res.data);
-    // const fetcher = async (url: string) => {
-    //     const { data } = await axios.get(url);
-    //     if (data) {
-    //         return data;
-    //     }
-    // };
-    // const { data, error } = useSWR(`https://jsonplaceholder.typicode.com/todos/1`, fetcher);
-    // console.log(data, error);
-
-    // if(error){
-    //   return <div>Error....</div>
-    // }
-    // if(!data){
-    //   return <div>Loading...</div>
-    // }
-    const MoveCenter = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    `;
-
-    const AlignRight = styled.div`
-        float: right;
-    `;
-    const Container = styled.div`
-        padding: 10px;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-    `;
 
     return (
         <div className="App">

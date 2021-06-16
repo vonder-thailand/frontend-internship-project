@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { API_Profile_Data } from '../apis/profile.api';
 //import * as data from '../mocks/user.json';
 import { IProfile } from '../shared/profile.interface';
-import styled from 'styled-components';
 import { Layout, Form, Input, Button } from 'antd';
+import { Container, MoveCenter } from '../shared/profile.styles';
 
 const { Content } = Layout;
 
@@ -22,25 +22,6 @@ function EditProfile() {
     useEffect(() => {
         getStatisticData();
     }, []);
-
-    const MoveCenter = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    `;
-
-    const Margin = styled.div`
-        margin-left: 60px;
-        margin-right: 60px;
-        flex-direction: column;
-    `;
-    const Container = styled.div`
-    padding: 10px;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-`;
-
 
     // const validateMessages = {
     //     required: '${label} is required!',
@@ -62,15 +43,15 @@ function EditProfile() {
         <div className="App">
             <Layout>
                 <Content>
-                  <Container>
-                    <MoveCenter>
-                        <br />
-                        <h1>แก้ไขข้อมูลส่วนตัว</h1>
+                    <Container>
+                        <MoveCenter>
+                            <br />
+                            <h1>แก้ไขข้อมูลส่วนตัว</h1>
 
-                        <img src={cred.pic} width={80}></img>
-                        <br />
-                    </MoveCenter>
-                    
+                            <img src={cred.pic} width={80}></img>
+                            <br />
+                        </MoveCenter>
+
                         <Form>
                             <h2>ชื่อผู้ใช้</h2>
                             <Form.Item name={['user', 'userName']} rules={[{ type: 'string' }]}>
@@ -96,7 +77,6 @@ function EditProfile() {
                                 </Form.Item>
                             </MoveCenter>
                         </Form>
-                    
                     </Container>
                 </Content>
             </Layout>
