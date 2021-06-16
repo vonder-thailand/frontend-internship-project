@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TestAnimation from '../TestStartPage/TestAnimation';
-import { TextHeader, ButtonStartOver, TextQuestion, ButtonNextQuestion, ButtonPrevQuestion } from '../../shared/styles/testQuestion.styled';
+import { TextQuestionIndex, ButtonStartOver, TextQuestion, ButtonNextQuestion, ButtonPrevQuestion } from '../../shared/styles/testQuestion.styled';
 import { useHistory } from 'react-router-dom';
 import ButtonChoice from './ButtonChoice';
 import { API_Test_Data } from '../../apis/test.api';
@@ -50,9 +50,9 @@ function TestQuestion() {
 
     return (
         <div>
-            <TextHeader>
+            <TextQuestionIndex>
                 คำถามข้อที่ {currentQuestion + 1}/{questionList?.length}
-            </TextHeader>
+            </TextQuestionIndex>
             <TextQuestion>{currentQuestionDetail.question}</TextQuestion>
             <ButtonStartOver onClick={() => history.push('/test')}>เริ่มใหม่</ButtonStartOver>
             <ButtonPrevQuestion onClick={onPrevQuestion}> Back</ButtonPrevQuestion>
