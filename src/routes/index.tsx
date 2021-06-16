@@ -8,6 +8,8 @@ import Register from 'components/pages/Authentication/views/Register/Register';
 import Test from 'components/pages/Test/views/TestStartPage/Test';
 import editProfile from 'components/pages/Profile/views/editProfile';
 import TestQuestion from 'components/pages/Test/views/TestQuestion/TestQuestion';
+import Result from 'components/pages/Test/views/ResultPage/Result';
+
 class Routing extends Component {
     render() {
         return (
@@ -20,6 +22,7 @@ class Routing extends Component {
                 <Route exact path="/test" component={Test} />
                 <Route exact path="/testquestion" component={TestQuestion} />
                 <Route exact path="/editProfile" component={editProfile} />
+                <Route exact path="/result" component={Result} />
             </Switch>
         );
     }
