@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Burger from 'components/pages/Burger/Burger';
 import { Layout } from 'antd';
 
-const { Content } = Layout;
+const { Header, Content, Footer } = Layout;
 const Container = styled.div`
     max-width: 600px;
     display: flex;
