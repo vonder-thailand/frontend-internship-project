@@ -17,7 +17,7 @@ export const TextHeader = styled.h1`
 export const BoxAnimation = styled.div`
     background-color: #dfdfff;
     border-radius: 10px;
-    width: 500px;
+    width: 450px;
     height: 50vh;
     position: absolute;
     top: 50%;

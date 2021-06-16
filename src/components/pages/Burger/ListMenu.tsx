@@ -2,7 +2,7 @@ import React from 'react';
 import { HomeOutlined, FormOutlined, UserOutlined 
 ,LoginOutlined, MessageOutlined ,UserAddOutlined }  from '@ant-design/icons';
 
-export const Menu = [
+export const ListMenu = [
   {
     title: 'Home',
     path: '/',
@@ -21,12 +21,12 @@ export const Menu = [
     icon: <MessageOutlined />,
     cName: 'nav-text'
   },
-  {
-    title: 'Profile',
-    path: '/profile',
-    icon: <UserOutlined />,
-    cName: 'nav-text'
-  },
+//   {
+//     title: 'Profile',
+//     path: '/profile',
+//     icon: <UserOutlined />,
+//     cName: 'nav-text'
+//   },
   {
     title: 'Login',
     path: '/login',
@@ -39,4 +39,4 @@ export const Menu = [
     icon: <UserAddOutlined />,
     cName: 'nav-text'
   }
-];
+]
