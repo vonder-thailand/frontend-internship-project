@@ -8,6 +8,7 @@ import Register from 'components/pages/Authentication/views/Register/Register';
 import Test from 'components/pages/Test/views/TestStartPage/Test';
 import editProfile from 'components/pages/Profile/views/editProfile';
 import TestQuestion from 'components/pages/Test/views/TestQuestion/TestQuestion';
+import { TestProvider } from 'components/pages/Test/views/TestQuestion/TestContext';
 
 function Routing() {
     return (
@@ -17,8 +18,14 @@ function Routing() {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+
             <Route exact path="/test" component={Test} />
-            <Route exact path="/testquestion" component={TestQuestion} />
+
+            <Route exact path="/testquestion">
+                <TestProvider>
+                    <TestQuestion />
+                </TestProvider>
+            </Route>
             <Route exact path="/editProfile" component={editProfile} />
         </Switch>
     );

@@ -16,11 +16,17 @@ function TestQuestion() {
     const [currentQuestion, setCurrentQuestion] = useState<number>(0);
     const [questionList, setQuestionList] = useState<Array<IQuestion> | null>(null);
     const [value, setValue] = useState<IState>({ value: 0 });
-    // const { addScoreList } = useContext(TestContext);
-    const [id, setId] = useState<number | string>('');
-    const [name, setName] = useState<string>('');
+    const { addScoreList } = useContext(TestContext);
+    const [categoryID, setcategoryID] = useState<number | string>('');
+    const [score, setScore] = useState<string>('');
+    const buttonList = [
+        { value: 3, label: 'ใช่มาก', icon: <SmileFilled style={{ fontSize: '20px', color: '#FFF566' }} /> },
+        { value: 2, label: 'ใช่', icon: <SmileFilled style={{ fontSize: '20px', color: '#FFF566' }} /> },
+        { value: 2, label: 'น้อย', icon: <SmileFilled style={{ fontSize: '20px', color: '#FFF566' }} /> },
+        { value: 1, label: 'น้อยมาก', icon: <SmileFilled style={{ fontSize: '20px', color: '#FFF566' }} /> },
+    ];
 
-    // const { setValueTest } = useTest();
+    const [arr, setArr] = useState([1]);
 
     useEffect(() => {
         if (!questionList) return;
@@ -57,32 +63,67 @@ function TestQuestion() {
 
     return (
         <div>
-            <TestProvider>
-                <TextQuestionIndex>
-                    คำถามข้อที่ {currentQuestion + 1}/{questionList?.length}
-                </TextQuestionIndex>
-                <TextQuestion>{currentQuestionDetail.question}</TextQuestion>
-                <ButtonStartOver onClick={() => history.push('/test')}>เริ่มใหม่</ButtonStartOver>
-                {/* <ButtonPrevQuestion onClick={onPrevQuestion}> Back</ButtonPrevQuestion>
+            <TextQuestionIndex>
+                คำถามข้อที่ {currentQuestion + 1}/{questionList?.length}
+            </TextQuestionIndex>
+            <TextQuestion>{currentQuestionDetail.question}</TextQuestion>
+            <ButtonStartOver onClick={() => history.push('/test')}>เริ่มใหม่</ButtonStartOver>
+            {/* <ButtonPrevQuestion onClick={onPrevQuestion}> Back</ButtonPrevQuestion>
             <ButtonNextQuestion onClick={onNextQuestion}> Next</ButtonNextQuestion> */}
+            {/* <div>
+                    <span>ID : </span>
+                    <input
+                        onChange={({ target: { value } }) => {
+                            setCategoryID(value);
+                        }}
+                    />
+                </div>
+                <div>
+                    <input
+                        onChange={({ target: { value } }) => {
+                            setScore(value);
+                        }}
+                    />
+                </div> */}
+            <button
+                onClick={() => {
+                    addScoreList({ categoryID, score });
+                }}
+            >
+                ADD
+            </button>
 
-                <TestAnimation />
-                <ContainerButton>
-                    <ButtonChoiceStlyed onClick={onNextQuestion.bind(null, 0)} icon={<SmileFilled style={{ fontSize: '20px', color: '#FFF566' }} />}>
-                        ใช่มาก
-                    </ButtonChoiceStlyed>
-                    <ButtonChoiceStlyed onClick={onNextQuestion.bind(null, 2)} icon={<MehFilled style={{ fontSize: '20px', paddingRight: '25px', color: '#FFF566' }} />}>
-                        ใช่
-                    </ButtonChoiceStlyed>
-                    <ButtonChoiceStlyed onClick={onNextQuestion.bind(null, 1)} icon={<MehFilled style={{ fontSize: '20px', paddingRight: '10px', color: '#FFF566' }} />}>
-                        น้อย
-                    </ButtonChoiceStlyed>
-                    <ButtonChoiceStlyed onClick={onNextQuestion.bind(null, 0)} icon={<FrownFilled style={{ fontSize: '20px', color: '#FFF566' }} />}>
-                        ไม่เลย
-                    </ButtonChoiceStlyed>
-                </ContainerButton>
-                {/* <ButtonChoice /> */}
-            </TestProvider>
+            <TestAnimation />
+            <ContainerButton>
+                {buttonList.map((item) => {
+                    return (
+                        <ButtonChoiceStlyed
+                            onClick={() => {
+                                onNextQuestion(item.value);
+                            }}
+                            icon={item.icon}
+                        >
+                            {item.label}
+                        </ButtonChoiceStlyed>
+                    );
+                })}
+            </ContainerButton>
+            <h1>Length:{arr.length}</h1>
+            <h2>
+                Values:
+                {arr.map((i) => i + ',')}
+            </h2>
+
+            <button
+                onClick={() => {
+                    setArr((prevArr) => [...prevArr, prevArr.length + 1]);
+                    console.log(arr);
+                }}
+            >
+                push
+            </button>
+
+            {/* <ButtonChoice /> */}
         </div>
     );
 }

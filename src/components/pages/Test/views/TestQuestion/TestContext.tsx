@@ -3,11 +3,11 @@ import { createContext, useState, useCallback, useEffect } from 'react';
 interface IcontextProps {
     children: any;
 }
-type Student = {
-    id: number;
-    name: string;
+type Result = {
+    categoryID: string;
+    score: string;
 };
-type StudentList = Array<Student> | [];
+type StudentList = Array<Result> | [];
 
 const TestContext = createContext<any>(null);
 
@@ -15,36 +15,35 @@ const TestProvider = ({ children }: IcontextProps) => {
     const [scoreList, setScoreList] = useState<StudentList>([]);
 
     const addScoreList = useCallback(
-        ({ id, name }: Student) => {
+        ({ categoryID, score }: Result) => {
             console.log(scoreList);
             setScoreList((prev) => {
                 const newData = [...prev];
-                newData.push({ id, name });
+                newData.push({ categoryID, score });
                 return newData;
             });
         },
         [scoreList],
     );
 
-    const deleteStudent = useCallback(({ id, name }: Student) => {
-        setScoreList((prev) => {
-            const deleteData = [...prev];
-            deleteData.splice(id, 1);
-            return deleteData;
-        });
-    }, []);
-
     useEffect(() => {
-        console.log('studentlist', scoreList);
+        console.log('scorelist', scoreList);
     }, [scoreList]);
 
     const value = {
         scoreList,
         setScoreList,
         addScoreList,
-        deleteStudent,
     };
     return <TestContext.Provider value={value}>{children}</TestContext.Provider>;
 };
+
+// const useAppContext = () => {
+//     const context = useContext(TestContext);
+//     if (context === undefined) {
+//         throw new Error('Error context undefined');
+//     }
+//     return context;
+// };
 
 export { TestContext, TestProvider };
