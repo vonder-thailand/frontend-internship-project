@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import ApexCharts from 'apexcharts'
+import Chart from 'react-apexcharts';
 import { apiResult } from '../../apis/result.api'
 
 interface Chartprop {
-    option?: any;
+    options: any;
     series?: any
 }
 
-const Chart = () => {
+const Charts = () => {
     const [chartValue, setchartValue] = useState<Chartprop>({
         series:[
             {
@@ -16,7 +16,7 @@ const Chart = () => {
                data: [80, 12, 23 , 40 , 60 , 10, 50 ,20]
             }
          ],
-        option :{
+         options :{
                 chart: {
                   height: 350,
                   type: "radar",
@@ -28,7 +28,7 @@ const Chart = () => {
                   }
                 },
                 title: {
-                  text: "8 Skill"
+                  text: "ผลลัพธ์ของคุณ"
                 },
                 stroke: {
                   width: 2
@@ -46,17 +46,18 @@ const Chart = () => {
     });
 
     useEffect(() => {
-        console.log(chartValue.option)
+        console.log(chartValue.options)
         console.log(chartValue.series)
     }, [])
 
     return (
         <>
         <div>
-            {/* <ApexCharts 
-            option= { chartValue.option } 
-            series= { chartValue.series }
-            /> */}
+            <Chart
+            options = { chartValue.options } 
+            series = { chartValue.series }
+            type ="radar"
+            />
 
         </div>
 
@@ -65,4 +66,4 @@ const Chart = () => {
     );
 };
 
-export default Chart
+export default Charts
