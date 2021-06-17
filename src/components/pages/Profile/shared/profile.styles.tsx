@@ -1,3 +1,5 @@
+import { Button, Input } from "antd";
+import Layout from "antd/lib/layout/layout";
 import styled from "styled-components";
 
 export const MoveCenter = styled.div`
@@ -20,4 +22,20 @@ margin-right: auto;
 
 export const AlignRight = styled.div`
 float: right;
+`;
+
+export const ButtonSubmit = styled(Button)`
+    background-color: #9696f1;
+    color: white;
+    font-weight: bolder;
+    width: 300px;
+`;
+
+export const BgColor = styled(Layout)`
+    background-color: white;
+`;
+
+export const FormInput = styled(Input)`
+background-color: white;
+width: 300px;
 `;

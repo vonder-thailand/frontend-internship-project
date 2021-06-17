@@ -93,3 +93,4 @@ export const ButtonCreateBoard = styled(Button)`
     width: 60px;
     height: 50px;
 `;
+

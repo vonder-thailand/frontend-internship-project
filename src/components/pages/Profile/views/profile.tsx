@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { API_Profile_Data } from '../apis/profile.api';
 import { Layout, Form, Button } from 'antd';
 import { useEffect } from 'react';
-import { IProfile } from '../shared/profile.interface';
+import { IProfile } from '../shared/Profile.interface';
 import { useState } from 'react';
-import { Container , MoveCenter , AlignRight } from '../shared/profile.styles';
+import { Container, MoveCenter, AlignRight, ButtonSubmit , BgColor} from '../shared/Profile.styles';
 
-const { Content } = Layout;
+//const { Content } = Layout;
 
 function Profile() {
     const [cred, setCred] = useState<IProfile>({ name: '', surname: '', email: '', result: '', pic: '', username: '' });
@@ -28,39 +28,35 @@ function Profile() {
 
     return (
         <div className="App">
-            <Layout>
-                <Content>
+            <BgColor>
                     <Container>
-                    <MoveCenter>
-                        <h1>ข้อมูลส่วนตัว</h1>
-                        <img src={cred.pic} width={80}></img>
-                        <h1>{cred.username}</h1>
-                    </MoveCenter>
-                    <h2>
-                        ชื่อ-นามสกุล :
-                        <AlignRight>
-                            {cred.name} {cred.surname}
-                        </AlignRight>
-                    </h2>
-                    <h2>
-                        อีเมล : <AlignRight>{cred.email}</AlignRight>
-                    </h2>
-                    <br/>
-                    <Link to="/editProfile">
-                        <Form.Item>
-                            <MoveCenter>
-                                <Button type="primary" htmlType="submit" style={{ background: '#9696f1', borderColor: '#9696f1' }}>
-                                    แก้ไขข้อมูลส่วนตัว
-                                </Button>
-                            </MoveCenter>
-                        </Form.Item>
-                    </Link>
-                    <h2>
-                        ผลลัพธ์จากแบบทดสอบ : <AlignRight>{cred.result}</AlignRight>
-                    </h2>
+                        <MoveCenter>
+                            <h1>ข้อมูลส่วนตัว</h1>
+                            <img src={cred.pic} width={80}></img>
+                            <h1>{cred.username}</h1>
+                        </MoveCenter>
+                        <h2>
+                            ชื่อ-นามสกุล :
+                            <AlignRight>
+                                {cred.name} {cred.surname}
+                            </AlignRight>
+                        </h2>
+                        <h2>
+                            อีเมล : <AlignRight>{cred.email}</AlignRight>
+                        </h2>
+                        <br />
+                        <Link to="/editProfile">
+                            <Form.Item>
+                                <MoveCenter>
+                                    <ButtonSubmit>แก้ไขข้อมูลส่วนตัว</ButtonSubmit>
+                                </MoveCenter>
+                            </Form.Item>
+                        </Link>
+                        <h2>
+                            ผลลัพธ์จากแบบทดสอบ : <AlignRight>{cred.result}</AlignRight>
+                        </h2>
                     </Container>
-                </Content>
-            </Layout>
+            </BgColor>
         </div>
     );
 }

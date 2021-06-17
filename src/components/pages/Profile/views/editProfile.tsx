@@ -1,19 +1,43 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect, useCallback, useContext } from 'react';
 import { API_Profile_Data } from '../apis/profile.api';
 //import * as data from '../mocks/user.json';
-import { IProfile } from '../shared/profile.interface';
-import { Layout, Form, Input, Button } from 'antd';
-import { Container, MoveCenter } from '../shared/profile.styles';
+import { IProfile } from '../shared/Profile.interface';
+import { Form } from 'antd';
+import { Container, MoveCenter, ButtonSubmit, BgColor , FormInput } from '../shared/Profile.styles';
+//import { ProfileContext, ProfileProvider } from '../shared/ProfileContext';
 
-const { Content } = Layout;
+//const { Content } = Layout;
 
 function EditProfile() {
     const [cred, setCred] = useState<IProfile>({ name: '', surname: '', email: '', result: '', pic: '', username: '' });
+    const [userName, setUserName] = useState<string>('');
+    const [name, setName] = useState<string>('');
+    const [surname, setSurname] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+
+
+    // setUserName(cred.username);
+    // setName(cred.name);
+    // setSurname(cred.surname);
+    // setEmail(cred.email);
+    const handleOnChange = (name: string , value: string) => {
+        setCred(prev => ({...prev , [name]: value}));
+        console.log(cred.username) 
+    }
+
+    const editedUser = () => {
+        console.log(cred)
+    }
+
+    // useEffect(() => {
+    //     setUserName(cred.username);
+    //     console.log(userName);
+        
+    // }, []);
+
     async function getStatisticData() {
         const response = await API_Profile_Data();
         if (response) {
-            console.log(response.name);
             setCred((prevState) => ({ ...prevState, name: response.name, surname: response.surname, email: response.email, result: response.result, pic: response.pic, username: response.username }));
         } else {
             console.log('error');
@@ -22,6 +46,20 @@ function EditProfile() {
     useEffect(() => {
         getStatisticData();
     }, []);
+
+    // const { addUser } = useContext(ProfileContext);
+    // const [userName, setUserName] = useState<string>('');
+    // const [name, setName] = useState<string>('');
+    // const [surname, setSurname] = useState<string>('');
+    // const [email, setEmail] = useState<string>('');
+
+    // const addUserToList = useCallback(() => {
+    //     addUser({ userName, name, surname, email });
+    //     setUserName('');
+    //     setName('');
+    //     setSurname('');
+    //     setEmail('');
+    // }, [addUser, userName, name, surname, email]);
 
     // const validateMessages = {
     //     required: '${label} is required!',
@@ -40,46 +78,30 @@ function EditProfile() {
     //     };
 
     return (
-        <div className="App">
-            <Layout>
-                <Content>
-                    <Container>
-                        <MoveCenter>
-                            <br />
-                            <h1>แก้ไขข้อมูลส่วนตัว</h1>
-
-                            <img src={cred.pic} width={80}></img>
-                            <br />
-                        </MoveCenter>
-
-                        <Form>
+        <div>
+            <BgColor>
+                <Container>
+                    <MoveCenter>
+                        <h1>แก้ไขข้อมูลส่วนตัว</h1>
+                        <img src={cred.pic} width={80}></img>
+                        <br />
+                        <form>
                             <h2>ชื่อผู้ใช้</h2>
-                            <Form.Item name={['user', 'userName']} rules={[{ type: 'string' }]}>
-                                <Input />
-                            </Form.Item>
+                            <FormInput name="username" value={cred.username} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
                             <h2>อีเมล</h2>
-                            <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]}>
-                                <Input />
-                            </Form.Item>
+                            <FormInput name="email" value={cred.email} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
                             <h2>ชื่อจริง</h2>
-                            <Form.Item name={['user', 'name']} rules={[{ type: 'string' }]}>
-                                <Input />
-                            </Form.Item>
+                            <FormInput name="name" value={cred.name} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
                             <h2>นามสกุล</h2>
-                            <Form.Item name={['user', 'surname']} rules={[{ type: 'string' }]}>
-                                <Input />
-                            </Form.Item>
-                            <MoveCenter>
-                                <Form.Item>
-                                    <Button type="primary" htmlType="submit" style={{ background: '#9696f1', borderColor: '#9696f1' }}>
-                                        ยืนยันการเปลี่ยนแปลง
-                                    </Button>
-                                </Form.Item>
-                            </MoveCenter>
-                        </Form>
-                    </Container>
-                </Content>
-            </Layout>
+                            <FormInput name="surname" value={cred.surname} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
+                        </form>
+                        <br />
+                        <Form.Item>
+                            <ButtonSubmit onClick={editedUser}>ยืนยันการเปลี่ยนแปลง</ButtonSubmit>
+                        </Form.Item>
+                    </MoveCenter>
+                </Container>
+            </BgColor>
         </div>
     );
 }
