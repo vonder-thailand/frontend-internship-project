@@ -8,3 +8,8 @@ export interface IState {
     value?: number;
     currentIndex?: number;
 }
+
+export interface IUserAns {
+    categoryID: number;
+    score: number;
+}

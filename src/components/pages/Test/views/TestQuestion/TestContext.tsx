@@ -1,5 +1,4 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
-
 interface IcontextProps {
     children: any;
 }
@@ -27,7 +26,7 @@ const TestProvider = ({ children }: IcontextProps) => {
     );
 
     useEffect(() => {
-        console.log('scorelist', scoreList);
+        // console.log('scorelist', scoreList);
     }, [scoreList]);
 
     const value = {
@@ -37,13 +36,5 @@ const TestProvider = ({ children }: IcontextProps) => {
     };
     return <TestContext.Provider value={value}>{children}</TestContext.Provider>;
 };
-
-// const useAppContext = () => {
-//     const context = useContext(TestContext);
-//     if (context === undefined) {
-//         throw new Error('Error context undefined');
-//     }
-//     return context;
-// };
 
 export { TestContext, TestProvider };

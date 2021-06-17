@@ -9,6 +9,7 @@ import Test from 'components/pages/Test/views/TestStartPage/Test';
 import editProfile from 'components/pages/Profile/views/editProfile';
 import TestQuestion from 'components/pages/Test/views/TestQuestion/TestQuestion';
 import { TestProvider } from 'components/pages/Test/views/TestQuestion/TestContext';
+import TestResult from 'components/pages/Test/views/TestQuestion/TestResult';
 
 function Routing() {
     return (
@@ -18,9 +19,8 @@ function Routing() {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-
+            <Route exact path="/testresult" component={TestResult} />
             <Route exact path="/test" component={Test} />
-
             <Route exact path="/testquestion">
                 <TestProvider>
                     <TestQuestion />
