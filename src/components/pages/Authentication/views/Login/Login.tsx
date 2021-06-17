@@ -31,22 +31,26 @@ const MoveCeneter = styled.div`
 `;
 
 function Login() {
+
+  const [currentUser, setCurrentUser] = useState<ILogin>({ firstname: '', lastname: '', username: '', email: '', password: '' });
+  const [userList, setUserList] = useState<Array<ILogin> | null>(null);
+
   async function getStatictisData() {
     const response = API_Login_Data()
     if (response) {
-      console.log((await response))
+      setUserList(await response); // store all question into the hook
+      const resp = response;
+      setCurrentUser(resp[currentUser]);
     } else {
       console.log("error")
     }
   }
   useEffect(() => {
     getStatictisData()
+    console.log(userList);
   }, [])
-
-  const [currentUser, setCurrentUser] = useState<ILogin>({ firstname: '', lastname: '', username: '', email: '', password: '' });
-
+  
   return (
-
     <div>
       <MoveCeneter>
         <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish} >
@@ -90,7 +94,6 @@ function Login() {
           <Form.Item>
             ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
           </Form.Item>
-        <div>{currentUser}</div>ß
         </Form>
 
       </MoveCeneter>
