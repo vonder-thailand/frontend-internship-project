@@ -2,15 +2,10 @@ import React from 'react'
 import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
 
-const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 },
-};
-
 const validateMessages = {
-  required: '${label} is required!',
+  required: '${name} is required!',
   types: {
-    email: '${label} is not a valid email!',
+    email: '${name} is not a valid email!',
   }
 };
 
@@ -24,11 +19,17 @@ const MoveCenter = styled.div`
     align-items: center;
   `;
 
+const MoveBottom = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+`;
+
 const Register = () => {
   return (
     <div>
       <MoveCenter>
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+        <Form name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
           <Form.Item name={['user', 'first_name']} rules={[{ required: true }]} >
             <Input placeholder="ชื่อจริง" style={{ width: 300 }} />
           </Form.Item>
@@ -48,9 +49,11 @@ const Register = () => {
             <Input.Password placeholder="ยืนยันรหัสผ่าน" style={{ width: 300 }} />
           </Form.Item>
           <Form.Item>
+            <MoveBottom>
             <Button type="primary" htmlType="submit" style={{ width: 300 }}>
               Submit
             </Button>
+            </MoveBottom>
           </Form.Item>
         </Form>
       </MoveCenter>

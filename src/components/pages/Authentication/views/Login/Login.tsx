@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { API_Login_Data } from '../../apis/user.api'
 import { Form, Input, Button } from 'antd';
@@ -6,6 +6,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
 import 'antd/dist/antd.css';
+import { ILogin } from '../../shared/login.interface';
 
 const layout = {
   labelCol: { span: 8 },
@@ -41,6 +42,9 @@ function Login() {
   useEffect(() => {
     getStatictisData()
   }, [])
+
+  const [currentUser, setCurrentUser] = useState<ILogin>({ firstname: '', lastname: '', username: '', email: '', password: '' });
+
   return (
 
     <div>
@@ -86,7 +90,9 @@ function Login() {
           <Form.Item>
             ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
           </Form.Item>
+        <div>{currentUser}</div>ß
         </Form>
+
       </MoveCeneter>
     </div>
 
