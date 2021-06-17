@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Col } from 'antd';
+import { Button, Col, Row } from 'antd';
 
 export const TextQuestionIndex = styled.div`
     font-family: 'Kanit', sans-serif;

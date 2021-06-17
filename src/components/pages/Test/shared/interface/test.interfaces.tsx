@@ -3,3 +3,8 @@ export interface IQuestion {
     question: string;
     questionIndex: number;
 }
+
+export interface IState {
+    value?: number;
+    currentIndex?: number;
+}
