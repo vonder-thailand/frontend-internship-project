@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { ButtonHome, ButtonStart, TextTitle } from '../../shared/styles/ResultPage.styled';
 import { HomeFilled }  from '@ant-design/icons';
 import Chart from './Chart';
+import Descrip from './Descrip';
 
 
 const Result = () => {
@@ -16,6 +17,8 @@ const Result = () => {
         {/* <TextTitle level={2}>ผลลัพธ์</TextTitle> */}
         <ButtonStart onClick={() => history.push('/test')}>เริ่มใหม่</ButtonStart>
         <Chart/>
+        <Descrip/>
+
         </>
     );
 };

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
-import { apiResult } from '../../apis/result.api'
+// import { apiResult } from '../../apis/result.api'
+import MockResultData from '../../mocks/result.json'
 
 interface Chartprop {
     options: any;
@@ -9,11 +10,13 @@ interface Chartprop {
 }
 
 const Charts = () => {
+    const MockScore = require('../../mocks/result.json')
+
     const [chartValue, setchartValue] = useState<Chartprop>({
         series:[
             {
                name: "Skill",
-               data: [80, 12, 23 , 40 , 60 , 10, 50 ,20]
+               data: MockScore.result.score
             }
          ],
          options :{
@@ -36,11 +39,14 @@ const Charts = () => {
                 fill: {
                   opacity: 0.1
                 },
-               markers: {
-                  size: 0
-                },
+                markers: {
+                    size: 5,
+                    hover: {
+                      size: 10
+                    }
+                  },
                 xaxis: {
-                  categories: [ "A" ,"B" ,"C" ,"D" ,"E" ,"F" ,"G" ,"H" ]
+                  categories: MockScore.result.skill
                 }
         }           
     });
@@ -58,10 +64,7 @@ const Charts = () => {
             series = { chartValue.series }
             type ="radar"
             />
-
         </div>
-
-
         </>
     );
 };
