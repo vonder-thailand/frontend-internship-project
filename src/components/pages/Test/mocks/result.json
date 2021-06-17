@@ -1,35 +1,6 @@
 {
-    "option" :{
-        "series":[
-            {
-               "name":"Skill",
-               "data":[80, 12, 23 , 40 , 60 , 10, 50 ,20]
+    "result" :{
+        "categories":["A" ,"B" ,"C" ,"D" ,"E" ,"F" ,"G" ,"H" ],
+        "data":[80, 12, 23 , 40 , 60 , 10, 50 ,20]
             }
-         ],
-            "chart": {
-              "height": 350,
-              "type": "radar",
-              "dropShadow": {
-                "enabled": true,
-                "blur": 1,
-                "left": 1,
-                "top": 1
-              }
-            },
-            "title": {
-              "text": "Radar Chart - Multi Series"
-            },
-            "stroke": {
-              "width": 2
-            },
-            "fill": {
-              "opacity": 0.1
-            },
-           "markers": {
-              "size": 0
-            },
-            "xaxis": {
-              "categories": [ ]
-            }
-    }           
 }

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { ButtonHome, ButtonStart, TextTitle } from '../../shared/styles/ResultPage.styled';
 import { HomeFilled }  from '@ant-design/icons';
+import Chart from './Chart';
 
 
 const Result = () => {
@@ -14,6 +15,7 @@ const Result = () => {
         <ButtonHome onClick={() => history.push('/')}><HomeFilled style={{ fontSize: '30px' }} /></ButtonHome>
         {/* <TextTitle level={2}>ผลลัพธ์</TextTitle> */}
         <ButtonStart onClick={() => history.push('/test')}>เริ่มใหม่</ButtonStart>
+        <Chart/>
         </>
     );
 };
