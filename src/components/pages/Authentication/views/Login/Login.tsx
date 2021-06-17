@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { API_Login_Data } from '../../apis/login.api'
-import { Form, Input, Button, Checkbox } from 'antd';
+import { API_Login_Data } from '../../apis/user.api'
+import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
@@ -33,7 +33,7 @@ function Login() {
   async function getStatictisData() {
     const response = API_Login_Data()
     if (response) {
-      console.log((await response).username)
+      console.log((await response))
     } else {
       console.log("error")
     }
