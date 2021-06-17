@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useEffect } from 'react';
 import { API_Login_Data } from '../../apis/user.api';
 import { Form, Input, Button } from 'antd';
@@ -36,6 +36,8 @@ function Login() {
     const [currentUser, setCurrentUser] = useState<number>(0);
     const [userList, setUserList] = useState<Array<ILogin> | null>(null);
     const history = useHistory();
+    const [email ,setEmail] = useState<string>("");
+    const [password ,setPassword] = useState<string>("");
 
     useEffect(() => {
         console.log('here');
@@ -57,15 +59,23 @@ function Login() {
         getLoginData();
     }, []);
 
+    function checkdatajson(values: any) {
+        if(email == currentUserDetail.email && password == currentUserDetail.password){
+            history.push("/");
+        } else {
+            console.log("Failed login");
+        }
+    }
+
     return (
         <div>
             <MoveCeneter>
-                <div>firstname: {currentUserDetail.firstname}</div>
+                {/* <div>firstname: {currentUserDetail.firstname}</div>
                 <div>lastname: {currentUserDetail.lastname}</div>
                 <div>username: {currentUserDetail.username}</div>
                 <div>email: {currentUserDetail.email}</div>
-                <div>password: {currentUserDetail.password}</div>
-                <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish}>
+                <div>password: {currentUserDetail.password}</div> */}
+                <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish} >
                     <Form.Item
                         name="email"
                         rules={[
@@ -75,7 +85,7 @@ function Login() {
                             },
                         ]}
                     >
-                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="อีเมล" style={{ width: 300 }} />
+                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="อีเมล" style={{ width: 300 }} value={email} onChange={({ target: {value} }) => {setEmail(value)}} />
                     </Form.Item>
                     <Form.Item
                         name="password"
@@ -86,11 +96,11 @@ function Login() {
                             },
                         ]}
                     >
-                        <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="รหัสผ่าน" style={{ width: 300 }} />
+                        <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="รหัสผ่าน" style={{ width: 300 }} value={password} onChange={({ target: {value} }) => {setPassword(value)}}/>
                     </Form.Item>
 
                     <Form.Item>
-                        <Button onClick={() => history.push('/')} type="primary" htmlType="submit" className="login-form-button">
+                        <Button onClick={checkdatajson} type="primary" htmlType="submit" className="login-form-button" >
                             เข้าสู่ระบบ
                         </Button>
                     </Form.Item>

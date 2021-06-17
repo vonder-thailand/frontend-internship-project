@@ -3,9 +3,9 @@ import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
 
 const validateMessages = {
-  required: '${name} is required!',
+  required: 'required!',
   types: {
-    email: '${name} is not a valid email!',
+    email: 'not a valid email!',
   }
 };
 
