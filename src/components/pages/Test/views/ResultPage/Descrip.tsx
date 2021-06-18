@@ -17,9 +17,10 @@ const Descrip = () => {
     }, [])
     return (
         <> 
+          <div>
         {Namemax.map((item: any, index: any) => {
             return (
-                <div>
+              
                     <ResultCard key={index}>
                         <BodyCard >
                         <Hname>{item.skill} : {item.score} คะแนน</Hname>
@@ -30,11 +31,9 @@ const Descrip = () => {
                         <Readmore ><p>อ่านเพิ่มเติม</p></Readmore>
                         </BodyCard >
                     </ResultCard>
-                </div>
-
                 )
         })}
-        
+         </div>
         </>
     );
 };

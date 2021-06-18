@@ -117,9 +117,10 @@ function TestQuestion() {
                     ''
                 ) : (
                     <ContainerButton>
-                        {buttonList.map((item) => {
+                        {buttonList.map((item,index) => {
                             return (
                                 <ButtonChoiceStlyed
+                                    key={index}
                                     onClick={() => {
                                         onNextQuestion(item.value);
                                     }}
