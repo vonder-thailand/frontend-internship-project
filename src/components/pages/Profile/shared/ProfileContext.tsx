@@ -1,5 +1,4 @@
 import { createContext, useCallback, useEffect, useState, useContext } from 'react';
-
 interface IContextProps {
     children: any;
 }
@@ -24,25 +23,6 @@ const ProfileProvider = ({ children }: IContextProps) => {
         });
     }, []);
 
-    // const removeStudent = useCallback(
-    //     (id) => {
-    //         setStudentList((prev) => {
-    //             const newData = prev.filter((student) =>
-    //                 student.id !== id
-    //             )
-    //             return newData;
-    //         })
-    //     },
-    //     [],
-    // )
-
-    // const resetStudent = useCallback(
-    //     () => {
-    //         setStudentList([]);
-    //     },
-    //     [],
-    // )
-
     useEffect(() => {
         console.log('studentList', userList);
     }, [userList]);
@@ -51,8 +31,6 @@ const ProfileProvider = ({ children }: IContextProps) => {
         userList,
         setUserList,
         addUser,
-        // removeUser,
-        // resetStudent,
     };
 
     return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>;
@@ -66,4 +44,4 @@ const useProfileContext = () => {
     return context;
 };
 
-export { ProfileContext, ProfileProvider , useProfileContext };
+export { ProfileContext, ProfileProvider, useProfileContext };

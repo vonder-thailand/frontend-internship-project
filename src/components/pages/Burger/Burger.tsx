@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ListMenu } from './ListMenu';
 import styled, { css } from 'styled-components';
-import { MenuOutlined, CloseOutlined, UserOutlined, LoginOutlined } from '@ant-design/icons';
-import { Layout, Menu, Avatar, Button, Descriptions } from 'antd';
+import { MenuOutlined, UserOutlined, LoginOutlined } from '@ant-design/icons';
+import { Layout, Menu, Avatar, Button } from 'antd';
 
 const { Header, Sider } = Layout;
 
@@ -23,7 +23,7 @@ const Bar = styled(Link)`
     background: none;
 `;
 
-const Navmenu = styled(Menu)<{ active: 'active' | false }>`
+const Navmenu = styled(Menu)<{ active: 'active' | '' }>`
     background-color: #9696f1;
     width: 250px;
     height: 100vh;
@@ -101,7 +101,7 @@ const LoginBtn = styled(Button)`
     margin: 10px 0 0 0;
 `;
 
-const Overlay = styled.div<{ active: 'active' | false }>`
+const Overlay = styled.div<{ active: 'active' | '' }>`
     ${({ active }) => {
         if (active === 'active') {
             return css`
@@ -135,9 +135,9 @@ const Burger = () => {
                 </Bar>
             </Navbar>
 
-            <Overlay active={sidebar ? 'active' : false} onClick={showSidebar} />
+            <Overlay active={sidebar ? 'active' : ''} onClick={showSidebar} />
 
-            <Navmenu active={sidebar ? 'active' : false}>
+            <Navmenu active={sidebar ? 'active' : ''}>
                 <Ul onClick={showSidebar}>
                     <Avataruser>
                         <Avatar size={75} icon={<UserOutlined />} />

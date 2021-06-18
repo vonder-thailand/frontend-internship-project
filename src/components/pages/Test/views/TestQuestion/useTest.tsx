@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 interface IState {
     value?: number;
     currentIndex?: number;

@@ -1,5 +1,5 @@
 import mockTestData from '../mocks/question.json'
-import { IQuestion, IUserAns } from '../shared/interface/test.interfaces'
+import { IQuestion, IUserAns } from '../shared/interface/Test.interfaces'
 import axios from 'axios'
 
 

@@ -1,12 +1,8 @@
-import { useState, useEffect, useCallback, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { API_Profile_Data } from '../apis/profile.api';
-//import * as data from '../mocks/user.json';
-import { IProfile } from '../shared/profile.interface';
+import { IProfile } from '../shared/Profile.interface';
 import { Form } from 'antd';
-import { Container, MoveCenter, ButtonSubmit, BgColor , FormInput , UserImage , TextTopic , TextUserInfo} from '../shared/profile.styles';
-//import { ProfileContext, ProfileProvider } from '../shared/ProfileContext';
-
-//const { Content } = Layout;
+import { Container, MoveCenter, ButtonSubmit, BgColor, FormInput, UserImage, TextTopic, TextUserInfo } from '../shared/Profile.styles';
 
 function EditProfile() {
     const [cred, setCred] = useState<IProfile>({ name: '', surname: '', email: '', result: '', pic: '', username: '' });
@@ -15,25 +11,14 @@ function EditProfile() {
     const [surname, setSurname] = useState<string>('');
     const [email, setEmail] = useState<string>('');
 
-
-    // setUserName(cred.username);
-    // setName(cred.name);
-    // setSurname(cred.surname);
-    // setEmail(cred.email);
-    const handleOnChange = (name: string , value: string) => {
-        setCred(prev => ({...prev , [name]: value}));
-        console.log(cred.username) 
-    }
+    const handleOnChange = (name: string, value: string) => {
+        setCred((prev) => ({ ...prev, [name]: value }));
+        console.log(cred.username);
+    };
 
     const editedUser = () => {
-        console.log(cred)
-    }
-
-    // useEffect(() => {
-    //     setUserName(cred.username);
-    //     console.log(userName);
-        
-    // }, []);
+        console.log(cred);
+    };
 
     async function getStatisticData() {
         const response = await API_Profile_Data();
@@ -47,52 +32,47 @@ function EditProfile() {
         getStatisticData();
     }, []);
 
-    // const { addUser } = useContext(ProfileContext);
-    // const [userName, setUserName] = useState<string>('');
-    // const [name, setName] = useState<string>('');
-    // const [surname, setSurname] = useState<string>('');
-    // const [email, setEmail] = useState<string>('');
-
-    // const addUserToList = useCallback(() => {
-    //     addUser({ userName, name, surname, email });
-    //     setUserName('');
-    //     setName('');
-    //     setSurname('');
-    //     setEmail('');
-    // }, [addUser, userName, name, surname, email]);
-
-    // const validateMessages = {
-    //     required: '${label} is required!',
-    //     types: {
-    //         email: '${label} is not a valid email!',
-    //         number: '${label} is not a valid number!',
-    //     },
-    //     number: {
-    //         range: '${label} must be between ${min} and ${max}',
-    //     },
-    // };
-    // {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}
-    // const Demo = () => {
-    //     const onFinish = (values: any) => {
-    //         console.log(values);
-    //     };
-
     return (
         <div>
             <BgColor>
                 <Container>
                     <MoveCenter>
                         <TextTopic>แก้ไขข้อมูลส่วนตัว</TextTopic>
-                        <UserImage src={cred.pic}/>
+                        <UserImage src={cred.pic} />
                         <form>
                             <TextUserInfo>ชื่อผู้ใช้</TextUserInfo>
-                            <FormInput name="username" value={cred.username} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
+                            <FormInput
+                                name="username"
+                                value={cred.username}
+                                onChange={({ target: { value, name } }) => {
+                                    handleOnChange(name, value);
+                                }}
+                            />
                             <TextUserInfo>อีเมล</TextUserInfo>
-                            <FormInput name="email" value={cred.email} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} disabled/>
+                            <FormInput
+                                name="email"
+                                value={cred.email}
+                                onChange={({ target: { value, name } }) => {
+                                    handleOnChange(name, value);
+                                }}
+                                disabled
+                            />
                             <TextUserInfo>ชื่อจริง</TextUserInfo>
-                            <FormInput name="name" value={cred.name} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
+                            <FormInput
+                                name="name"
+                                value={cred.name}
+                                onChange={({ target: { value, name } }) => {
+                                    handleOnChange(name, value);
+                                }}
+                            />
                             <TextUserInfo>นามสกุล</TextUserInfo>
-                            <FormInput name="surname" value={cred.surname} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
+                            <FormInput
+                                name="surname"
+                                value={cred.surname}
+                                onChange={({ target: { value, name } }) => {
+                                    handleOnChange(name, value);
+                                }}
+                            />
                         </form>
                         <br />
                         <Form.Item>

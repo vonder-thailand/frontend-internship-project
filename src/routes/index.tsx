@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from 'components/pages/Home/view/Home';
 import Board from 'components/pages/Board/views/Board';
-import Profile from 'components/pages/Profile/views/profile';
+import Profile from 'components/pages/Profile/views/Profile';
 import Login from 'components/pages/Authentication/views/Login/Login';
 import Register from 'components/pages/Authentication/views/Register/Register';
 import Test from 'components/pages/Test/views/TestStartPage/Test';
-import EditProfile from 'components/pages/Profile/views/editProfile';
 import TestQuestion from 'components/pages/Test/views/TestQuestion/TestQuestion';
 import { TestProvider } from 'components/pages/Test/views/TestQuestion/TestContext';
 import TestResult from 'components/pages/Test/views/TestQuestion/TestResult';
 import Result from 'components/pages/Test/views/ResultPage/Result';
-import editProfile from 'components/pages/Profile/views/editProfile';
+import editProfile from 'components/pages/Profile/views/EditProfile';
 
 function Routing() {
     return (

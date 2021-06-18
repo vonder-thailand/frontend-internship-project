@@ -51,8 +51,6 @@ export const ImageTestPage = styled.div`
 export const IconArrow = styled(RightOutlined)`
     color: #ffffff;
     display: flex;
-    /* justify-content: right; */
-    /* position: relative; */
     padding: 0px 6px;
     margin-left: auto;
     transform: translateY(-25px);
@@ -63,8 +61,6 @@ export const TextOnImageTest = styled.div`
     font-weight: bolder;
     color: white;
     font-size: 25px;
-
-    /* padding: 70px 0; */
 `;
 export const TextBoard = styled(Col)`
     font-family: 'Kanit', sans-serif;
@@ -109,4 +105,3 @@ export const ButtonCreateBoard = styled(Button)`
     width: 60px;
     height: 50px;
 `;
-

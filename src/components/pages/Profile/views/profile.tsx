@@ -1,11 +1,8 @@
-import { Link } from 'react-router-dom';
-//import * as data from '../mocks/user.json';
-// import useSWR from 'swr';
-// import axios from 'axios';
+import { Link, useHistory } from 'react-router-dom';
 import { API_Profile_Data } from '../apis/profile.api';
 import { Form, List } from 'antd';
 import { useEffect } from 'react';
-import { IIconTextProfile, IListDataProfile, IProfile } from '../shared/profile.interface';
+import { IIconTextProfile, IListDataProfile, IProfile } from '../shared/Profile.interface';
 import { useState } from 'react';
 import {
     Container,
@@ -30,13 +27,12 @@ import {
     ProfileListBoard,
     ProfileListItemBoard,
     HistoryImage,
-} from '../shared/profile.styles';
+} from '../shared/Profile.styles';
 import React from 'react';
-
-//const { Content } = Layout;
 
 function Profile() {
     const [cred, setCred] = useState<IProfile>({ name: '', surname: '', email: '', result: '', pic: '', username: '' });
+    const history = useHistory();
     async function getStatisticData() {
         const response = await API_Profile_Data();
         if (response) {
@@ -104,31 +100,29 @@ function Profile() {
                     </MoveCenter>
                     <TextTopic2>ประวัติการสร้างกระทู้</TextTopic2>
                     <MoveCenter>
-                        <LinkResult to="/">
-                            <HistoryCard>
-                                <ProfileListBoard
-                                    itemLayout="vertical"
-                                    size="large"
-                                    pagination={{
-                                        onChange: (page) => {
-                                            console.log(page);
-                                        },
-                                        pageSize: 3,
-                                    }}
-                                    dataSource={listData}
-                                    renderItem={(item: any) => (
-                                        <ProfileListItemBoard
-                                            key={item.title}
-                                            actions={[<IconText icon={IconWrite} text="username" key="list-vertical-star-o" />, <IconText icon={IconLove} text="2" key="list-vertical-message" />]}
-                                        >
-                                            <div>
-                                                <List.Item.Meta avatar={<HistoryImage src={item.avatar} width={100} />} title={<a href={item.href}>{item.title}</a>} description={item.description} />
-                                            </div>
-                                        </ProfileListItemBoard>
-                                    )}
-                                />
-                            </HistoryCard>
-                        </LinkResult>
+                        <HistoryCard onClick={() => history.push('/')}>
+                            <ProfileListBoard
+                                itemLayout="vertical"
+                                size="large"
+                                pagination={{
+                                    onChange: (page) => {
+                                        console.log(page);
+                                    },
+                                    pageSize: 3,
+                                }}
+                                dataSource={listData}
+                                renderItem={(item: any) => (
+                                    <ProfileListItemBoard
+                                        key={item.title}
+                                        actions={[<IconText icon={IconWrite} text="username" key="list-vertical-star-o" />, <IconText icon={IconLove} text="2" key="list-vertical-message" />]}
+                                    >
+                                        <div>
+                                            <List.Item.Meta avatar={<HistoryImage src={item.avatar} width={100} />} title={<a href={item.href}>{item.title}</a>} description={item.description} />
+                                        </div>
+                                    </ProfileListItemBoard>
+                                )}
+                            />
+                        </HistoryCard>
                     </MoveCenter>
                 </Container>
             </BgColor>
