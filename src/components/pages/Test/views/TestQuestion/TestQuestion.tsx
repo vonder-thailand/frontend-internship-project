@@ -59,7 +59,7 @@ function TestQuestion() {
                 console.log('set Loading:', isLoading);
                 setLoading(false);
                 API_PostTestResult(testScore);
-                history.push('/testresult');
+                history.push('/result');
             }, 1500);
 
             return;
