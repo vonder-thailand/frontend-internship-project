@@ -17,10 +17,10 @@ const Descrip = () => {
     }, [])
     return (
         <> 
-        {Namemax.map((item: any) => {
+        {Namemax.map((item: any, index: any) => {
             return (
                 <div>
-                    <ResultCard>
+                    <ResultCard key={index}>
                         <BodyCard >
                         <Hname>{item.skill} : {item.score} คะแนน</Hname>
                         <Boxpic> <h1>Character </h1></Boxpic>
