@@ -22,15 +22,14 @@ function ButtonLoadingStart() {
 
     return (
         <div>
-            {isLoading ? '' : <ButtonLoading onClick={fetchData}>เริ่มการทดสอบ</ButtonLoading>}
-            {isLoading ? (
+            {isLoading ?  (
                 <IsLoadingSpinner>
                     <TextIsLoading>Fetching Data</TextIsLoading>
                     <Spin size="large" />
                 </IsLoadingSpinner>
-            ) : (
-                ''
-            )}
+            ) : 
+            <ButtonLoading onClick={fetchData}>เริ่มการทดสอบ</ButtonLoading>
+            }
         </div>
     );
 }

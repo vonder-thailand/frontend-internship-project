@@ -13,7 +13,6 @@ const Container = styled.div`
 const MainContent = styled(Content)`
     height: calc(100vh - 80px);
     width: 100%;
-    margin-top: 80px;
     overflow-y: scroll;
 `
 
