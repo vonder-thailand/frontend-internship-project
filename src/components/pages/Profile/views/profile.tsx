@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 // import useSWR from 'swr';
 // import axios from 'axios';
 import { API_Profile_Data } from '../apis/profile.api';
-import { Form } from 'antd';
+import { Form, List } from 'antd';
 import { useEffect } from 'react';
-import { IProfile } from '../shared/Profile.interface';
+import { IIconTextProfile, IListDataProfile, IProfile } from '../shared/Profile.interface';
 import { useState } from 'react';
 import {
     Container,
@@ -23,8 +23,15 @@ import {
     ResultImage,
     CardText,
     IconArrow,
-    LinkResult
+    LinkResult,
+    HistoryCard,
+    IconLove,
+    IconWrite,
+    ProfileListBoard,
+    ProfileListItemBoard,
+    HistoryImage,
 } from '../shared/Profile.styles';
+import React from 'react';
 
 //const { Content } = Layout;
 
@@ -43,6 +50,17 @@ function Profile() {
         getStatisticData();
     }, []);
 
+    const listData: Array<IListDataProfile> = [];
+    for (let i = 1; i < 2; i++) {
+        listData.push({
+            href: '/board',
+            title: 'แนะนำหนังสือสำหรับคนอยากไปสายวิศวะ',
+            avatar: 'https://scontent.fbkk12-1.fna.fbcdn.net/v/t1.6435-9/59064493_437047506858059_6394542383404417024_n.png?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=aMf0eSHrFroAX87NAZJ&tn=CeGl5CLqXgfyZu7t&_nc_ht=scontent.fbkk12-1.fna&oh=2b1b5b5642904a40a58edd5a57f17a7e&oe=60CB2D93',
+            description: 'บทความ',
+        });
+    }
+
+    const IconText = ({ icon, text }: IIconTextProfile) => React.createElement(icon);
     return (
         <div>
             <BgColor>
@@ -85,6 +103,33 @@ function Profile() {
                         </LinkResult>
                     </MoveCenter>
                     <TextTopic2>ประวัติการสร้างกระทู้</TextTopic2>
+                    <MoveCenter>
+                        <LinkResult to="/">
+                            <HistoryCard>
+                                <ProfileListBoard
+                                    itemLayout="vertical"
+                                    size="large"
+                                    pagination={{
+                                        onChange: (page) => {
+                                            console.log(page);
+                                        },
+                                        pageSize: 3,
+                                    }}
+                                    dataSource={listData}
+                                    renderItem={(item: any) => (
+                                        <ProfileListItemBoard
+                                            key={item.title}
+                                            actions={[<IconText icon={IconWrite} text="username" key="list-vertical-star-o" />, <IconText icon={IconLove} text="2" key="list-vertical-message" />]}
+                                        >
+                                            <div>
+                                                <List.Item.Meta avatar={<HistoryImage src={item.avatar} width={100} />} title={<a href={item.href}>{item.title}</a>} description={item.description} />
+                                            </div>
+                                        </ProfileListItemBoard>
+                                    )}
+                                />
+                            </HistoryCard>
+                        </LinkResult>
+                    </MoveCenter>
                 </Container>
             </BgColor>
         </div>

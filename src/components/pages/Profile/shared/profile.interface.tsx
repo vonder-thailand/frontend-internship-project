@@ -6,3 +6,15 @@ export interface IProfile {
     result: string;
     pic: string;
 }
+
+export interface IListDataProfile {
+    href: string;
+    title: string;
+    avatar: string;
+    description: string;
+}
+
+export interface IIconTextProfile {
+    icon: React.ForwardRefExoticComponent<any>;
+    text: string;
+}
