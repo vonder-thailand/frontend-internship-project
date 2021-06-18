@@ -8,13 +8,7 @@ import { useHistory } from 'react-router';
 import { ILogin } from '../../shared/login.interface';
 import { ButtonColor, InputEmail, InputPassword, FontText, FontTextHeader, LogoPage } from 'components/pages/Authentication/shared/style';
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 10 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 10 },
-};
+import logo from "../../images/logo.png";
 
 const MoveCeneter = styled.div`
     display: flex;
@@ -55,6 +49,7 @@ function Login() {
   return (
     <div>
       <MoveCeneter>
+        <img src={logo} />
         <Space align="start">
           <FontTextHeader>
             เข้าสู่ระบบ
@@ -67,7 +62,7 @@ function Login() {
             rules={[
               {
                 required: true,
-                message: 'Please input your Email!',
+                message: 'กรุณาใส่อีเมล!',
               },
             ]}
           >
@@ -79,7 +74,7 @@ function Login() {
             rules={[
               {
                 required: true,
-                message: 'Please input your Password!',
+                message: 'กรุณาใส่รหัสผ่าน!',
               },
             ]}
           >
