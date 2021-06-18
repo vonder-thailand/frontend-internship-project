@@ -10,6 +10,7 @@ import editProfile from 'components/pages/Profile/views/editProfile';
 import TestQuestion from 'components/pages/Test/views/TestQuestion/TestQuestion';
 import { TestProvider } from 'components/pages/Test/views/TestQuestion/TestContext';
 import TestResult from 'components/pages/Test/views/TestQuestion/TestResult';
+import Result from 'components/pages/Test/views/ResultPage/Result';
 
 function Routing() {
     return (
@@ -27,6 +28,7 @@ function Routing() {
                 </TestProvider>
             </Route>
             <Route exact path="/editProfile" component={editProfile} />
+            <Route exact path="/result" component={Result} />
         </Switch>
     );
 }

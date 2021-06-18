@@ -13,7 +13,6 @@ const Navbar = styled(Header)`
     display: flex;
     justify-content: start;
     z-index: 1;
-    position: fixed;
     width: 100%;
     max-width: 600px;
 `;
