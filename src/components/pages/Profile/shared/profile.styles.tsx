@@ -1,7 +1,7 @@
-import { Button, Input, Card, Image , List } from 'antd';
+import { Button, Input, Card, Image, List } from 'antd';
 import Layout from 'antd/lib/layout/layout';
 import styled from 'styled-components';
-import { RightOutlined , HeartOutlined , FormOutlined } from '@ant-design/icons';
+import { RightOutlined, HeartOutlined, FormOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 export const MoveCenter = styled.div`
@@ -68,7 +68,6 @@ export const TextTopic2 = styled.div`
 `;
 
 export const TextUserInfo = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     font-size: 15px;
     margin-top: 10px;
@@ -76,19 +75,16 @@ export const TextUserInfo = styled.div`
 `;
 
 export const TextUsername = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     font-size: 15px;
     margin-top: 10px;
     padding-bottom: 0px;
 `;
 export const CardText = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     font-size: 12px;
     transform: translateY(80%) translateX(12%);
 `;
-
 
 export const ResultCard = styled(Card)`
     box-shadow: 0px 3px 6px #c7c7c7;

@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { Button, Image, Input } from 'antd';
-import logo from "../../images/logo.png";
+import logo from '../../images/logo.png';
 
 export const ButtonColor = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: white;
     background-color: #7879f1;
-    /* transform: translateY(28rem) translateX(13rem); */
     width: 342px;
     height: 55px;
     flex-direction: row;
@@ -48,14 +46,12 @@ export const LogoPage = styled(Image)`
 `;
 
 export const FontText = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-size: 18px;
     position: absolute;
     bottom: 2rem;
 `;
 
 export const FontTextHeader = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-size: 18px;
     font-weight: bold;
     padding: 30px;

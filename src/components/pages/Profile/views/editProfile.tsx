@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { API_Profile_Data } from '../apis/profile.api';
-import { IProfile } from '../shared/Profile.interface';
+import { IProfile } from '../shared/profile.interface';
 import { Form } from 'antd';
-import { Container, MoveCenter, ButtonSubmit, BgColor, FormInput, UserImage, TextTopic, TextUserInfo } from '../shared/Profile.styles';
+import { Container, MoveCenter, ButtonSubmit, BgColor, FormInput, UserImage, TextTopic, TextUserInfo } from '../shared/profile.styles';
 
 function EditProfile() {
     const [cred, setCred] = useState<IProfile>({ name: '', surname: '', email: '', result: '', pic: '', username: '' });

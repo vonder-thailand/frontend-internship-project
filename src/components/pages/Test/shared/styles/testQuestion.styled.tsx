@@ -2,14 +2,12 @@ import styled from 'styled-components';
 import { Button, Col, Row } from 'antd';
 
 export const TextQuestionIndex = styled.div`
-    font-family: 'Kanit', sans-serif;
     text-align: center;
     font-size: 15px;
     transform: translateY(100%);
 `;
 
 export const ButtonStartOver = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: #7879f1;
@@ -21,7 +19,6 @@ export const ButtonStartOver = styled(Button)`
 `;
 
 export const ButtonNextQuestion = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: #7879f1;
@@ -33,7 +30,6 @@ export const ButtonNextQuestion = styled(Button)`
 `;
 
 export const ButtonPrevQuestion = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: #7879f1;
@@ -58,7 +54,6 @@ export const ContainerButton = styled(Col)`
     display: grid;
 `;
 export const ButtonChoiceStlyed = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: white;
