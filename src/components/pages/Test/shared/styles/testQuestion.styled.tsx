@@ -68,4 +68,5 @@ export const ButtonChoiceStlyed = styled(Button)`
     height: 6vh;
     margin-top: 5px;
     letter-spacing: 1px;
+    box-shadow: 2px 5px #e2e2e2;
 `;

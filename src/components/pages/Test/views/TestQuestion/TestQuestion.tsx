@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { API_GetTestData, API_PostTestResult } from '../../apis/test.api';
 import { IQuestion, IUserAns } from '../../shared/interface/test.interfaces';
 import { SmileFilled } from '@ant-design/icons';
+import { Modal, Spin } from 'antd';
+import { ButtonLoading, IsLoadingSpinner, TextIsLoading } from '../../shared/styles/testPage.styled';
 
 function TestQuestion() {
     //
@@ -21,6 +23,8 @@ function TestQuestion() {
         { value: 0, label: 'น้อยมาก', icon: <SmileFilled style={{ fontSize: '20px', color: '#FFF566' }} /> },
     ];
     const [testScore, setTestScore] = useState<Array<IUserAns>>([]);
+    const [isLoading, setLoading] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     useEffect(() => {
         if (!questionList) return;
@@ -50,8 +54,14 @@ function TestQuestion() {
         if (!questionList) return;
         // ถ้ามากกว่า 23 ก็คือ 24 ให้ Post Test Result
         if (currentQuestion + 1 > questionList.length - 1) {
-            API_PostTestResult(testScore);
-            history.push('/testresult');
+            setLoading(true);
+            setTimeout(() => {
+                console.log('set Loading:', isLoading);
+                setLoading(false);
+                API_PostTestResult(testScore);
+                history.push('/testresult');
+            }, 1500);
+
             return;
         }
         setCurrentQuestion(currentQuestion + 1);
@@ -63,6 +73,17 @@ function TestQuestion() {
         setCurrentQuestion(currentQuestion - 1);
     }
 
+    const fetchData = () => {
+        console.log(isLoading);
+        setLoading(true);
+        setIsModalVisible(true);
+        setTimeout(() => {
+            console.log('set Loading:', isLoading);
+            setLoading(false);
+            history.push('/resulttest');
+        }, 1500);
+    };
+
     return (
         <div>
             <TextQuestionIndex>
@@ -71,20 +92,54 @@ function TestQuestion() {
             <TextQuestion>{currentQuestionDetail.question}</TextQuestion>
             <ButtonStartOver onClick={() => history.push('/test')}>เริ่มใหม่</ButtonStartOver>
             <TestAnimation />
-            <ContainerButton>
-                {buttonList.map((item) => {
-                    return (
-                        <ButtonChoiceStlyed
-                            onClick={() => {
-                                onNextQuestion(item.value);
-                            }}
-                            icon={item.icon}
-                        >
-                            {item.label}
-                        </ButtonChoiceStlyed>
-                    );
-                })}
-            </ContainerButton>
+
+            <div>
+                {/* {isLoading ? (
+                    ''
+                ) : (
+                    <ContainerButton>
+                        {buttonList.map((item) => {
+                            return (
+                                <ButtonChoiceStlyed
+                                    onClick={() => {
+                                        onNextQuestion(item.value);
+                                    }}
+                                    icon={item.icon}
+                                >
+                                    {item.label}
+                                </ButtonChoiceStlyed>
+                            );
+                        })}
+                    </ContainerButton>
+                )} */}
+
+                {isLoading ? (
+                    ''
+                ) : (
+                    <ContainerButton>
+                        {buttonList.map((item) => {
+                            return (
+                                <ButtonChoiceStlyed
+                                    onClick={() => {
+                                        onNextQuestion(item.value);
+                                    }}
+                                    icon={item.icon}
+                                >
+                                    {item.label}
+                                </ButtonChoiceStlyed>
+                            );
+                        })}
+                    </ContainerButton>
+                )}
+                {isLoading ? (
+                    <IsLoadingSpinner>
+                        <TextIsLoading>กำลังประมลผลคำตอบน้า</TextIsLoading>
+                        <Spin size="large" />
+                    </IsLoadingSpinner>
+                ) : (
+                    ''
+                )}
+            </div>
         </div>
     );
 }
