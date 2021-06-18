@@ -3,11 +3,28 @@ import { Link } from 'react-router-dom';
 // import useSWR from 'swr';
 // import axios from 'axios';
 import { API_Profile_Data } from '../apis/profile.api';
-import { Form, Avatar } from 'antd';
+import { Form } from 'antd';
 import { useEffect } from 'react';
 import { IProfile } from '../shared/Profile.interface';
 import { useState } from 'react';
-import { Container, MoveCenter, AlignRight, ButtonSubmit, BgColor, TextUserInfo, TextTopic, TextUsername, ResultCard, UserImage } from '../shared/Profile.styles';
+import {
+    Container,
+    MoveCenter,
+    AlignRight,
+    ButtonSubmit,
+    BgColor,
+    TextUserInfo,
+    TextTopic,
+    TextUsername,
+    ResultCard,
+    UserImage,
+    TextTopic2,
+    AlignLeft,
+    ResultImage,
+    CardText,
+    IconArrow,
+    LinkResult
+} from '../shared/Profile.styles';
 
 //const { Content } = Layout;
 
@@ -27,7 +44,7 @@ function Profile() {
     }, []);
 
     return (
-        <div className="App">
+        <div>
             <BgColor>
                 <Container>
                     <MoveCenter>
@@ -51,14 +68,23 @@ function Profile() {
                             </MoveCenter>
                         </Form.Item>
                     </Link>
-                    <TextUserInfo>ผลลัพธ์จากแบบทดสอบ :</TextUserInfo>
+                    <TextTopic2>ผลลัพธ์จากแบบทดสอบ</TextTopic2>
                     <MoveCenter>
-                        <Link to="/">
+                        <LinkResult to="/">
                             <ResultCard>
-                                <AlignRight>{cred.result}</AlignRight>
+                                <AlignLeft>
+                                    <ResultImage src="https://www.datanovia.com/en/wp-content/uploads/2020/12/radar-chart-in-r-customized-fmstb-radar-chart-1.png" />
+                                </AlignLeft>
+                                <CardText>
+                                    ลักษณะเด่นของคุณ
+                                    <br />
+                                    วันที่ 15 มิ.ย. 2564
+                                </CardText>
+                                <IconArrow />
                             </ResultCard>
-                        </Link>
+                        </LinkResult>
                     </MoveCenter>
+                    <TextTopic2>ประวัติการสร้างกระทู้</TextTopic2>
                 </Container>
             </BgColor>
         </div>
