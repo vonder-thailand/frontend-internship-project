@@ -2,10 +2,13 @@ import styled from 'styled-components';
 import { ButtonStartOver } from '../../shared/styles/testQuestion.styled';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { ButtonHome, ButtonStart, TextTitle } from '../../shared/styles/ResultPage.styled';
 import { HomeFilled }  from '@ant-design/icons';
 import Chart from './Chart';
 import Descrip from './Descrip';
+import { ButtonHome, 
+        ButtonStart, 
+        TextTitle } from '../../shared/styles/ResultPage.styled';
+
 
 
 const Result = () => {

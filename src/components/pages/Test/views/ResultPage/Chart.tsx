@@ -1,8 +1,5 @@
-import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
-// import { apiResult } from '../../apis/result.api'
-import MockResultData from '../../mocks/result.json'
 
 interface Chartprop {
     options: any;
@@ -10,13 +7,15 @@ interface Chartprop {
 }
 
 const Charts = () => {
-    const MockScore = require('../../mocks/result.json')
+  const MockScore = require('../../mocks/result.json')
+  const chartScore = Object.keys(MockScore).map(key => MockScore[key].score)
+  const chartSkill = Object.keys(MockScore).map(key => MockScore[key].skill)
 
     const [chartValue, setchartValue] = useState<Chartprop>({
         series:[
             {
                name: "Skill",
-               data: MockScore.result.score
+               data: chartScore
             }
          ],
          options :{
@@ -46,7 +45,7 @@ const Charts = () => {
                     }
                   },
                 xaxis: {
-                  categories: MockScore.result.skill
+                  categories: chartSkill
                 }
         }           
     });
@@ -54,6 +53,7 @@ const Charts = () => {
     useEffect(() => {
         console.log(chartValue.options)
         console.log(chartValue.series)
+        console.log(MockScore )
     }, [])
 
     return (
