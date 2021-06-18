@@ -8,25 +8,23 @@ const Container = styled.div`
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
     margin: 0 auto;
 `;
 const MainContent = styled(Content)`
     height: calc(100vh - 80px);
     width: 100%;
-    margin-top: 80px;
     overflow-y: scroll;
-`
+`;
 
 const App = () => {
     return (
         <>
-        <Container>
-            <Burger />
-        <MainContent>
-            <Routing />
-        </MainContent>
-        </Container>
+            <Container>
+                <Burger />
+                <MainContent>
+                    <Routing />
+                </MainContent>
+            </Container>
         </>
     );
 };

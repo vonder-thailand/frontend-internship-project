@@ -16,13 +16,12 @@ export const TextHeader = styled.h1`
 
 export const BoxAnimation = styled.div`
     background-color: #dfdfff;
+    height: 40vh;
+    width: 500px;
+    transition: 0.5s ease;
+    margin: 0 auto;
     border-radius: 10px;
-    width: 450px;
-    height: 50vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 30px;
 `;
 
 export const TextInBoxAnimation = styled.div`
@@ -30,7 +29,7 @@ export const TextInBoxAnimation = styled.div`
     font-size: 2rem;
     color: #7879f1;
     text-align: center;
-    transform: translateY(10rem);
+    transform: translateY(7rem);
 `;
 
 export const TextDescription = styled.div`
@@ -38,7 +37,7 @@ export const TextDescription = styled.div`
     text-align: center;
     font-size: 1rem;
     font-weight: bolder;
-    transform: translateY(27rem);
+    transform: translateY(2rem);
 `;
 
 export const ButtonLoading = styled(Button)`
@@ -47,7 +46,7 @@ export const ButtonLoading = styled(Button)`
     font-weight: bolder;
     color: white;
     background-color: #7879f1;
-    transform: translateY(28rem) translateX(13rem);
+    transform: translateY(5rem) translateX(13rem);
     width: 12rem;
     height: 6vh;
     flex-direction: row;
@@ -56,7 +55,7 @@ export const ButtonLoading = styled(Button)`
 `;
 
 export const IsLoadingSpinner = styled.div`
-    transform: translateY(27rem) translateX(13rem);
+    transform: translateY(5rem) translateX(13rem);
     width: 12rem;
     height: 6vh;
     display: flex;

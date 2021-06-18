@@ -3,8 +3,20 @@ import React, { useEffect } from 'react';
 import { API_getStatistics } from '../apis/home.api';
 import { useHistory } from 'react-router-dom';
 import { Input, Row, List } from 'antd';
-import { MessageOutlined, LikeOutlined, UserOutlined } from '@ant-design/icons';
-import { SearchField, TagFilter, ButtonTagFilter, ImageTestPage, TextBoard, ButtonSeeAllBoard, ListItemBoard, ListBoard, TextOnImageTest, ButtonCreateBoard } from '../shared/homepage.styles';
+import { MessageOutlined, LikeOutlined, UserOutlined, RightOutlined } from '@ant-design/icons';
+import {
+    SearchField,
+    TagFilter,
+    ButtonTagFilter,
+    ImageTestPage,
+    TextBoard,
+    IconArrow,
+    ButtonSeeAllBoard,
+    ListItemBoard,
+    ListBoard,
+    TextOnImageTest,
+    ButtonCreateBoard,
+} from '../shared/homepage.styles';
 import { tagsData, IListData, IIconText } from '../shared/home.interface';
 
 //
@@ -69,6 +81,7 @@ function Home() {
             </TagFilter>
             <ImageTestPage className="center" onClick={() => history.push('/test')}>
                 <TextOnImageTest>มาทำแบบทดสอบกันเถอะ !</TextOnImageTest>
+                <IconArrow onClick={() => history.push('/test')} />
             </ImageTestPage>
             <Row>
                 <TextBoard xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>

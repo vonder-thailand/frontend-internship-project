@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ListMenu } from './ListMenu';
 import styled, { css } from 'styled-components';
-import { MenuOutlined, CloseOutlined , UserOutlined ,LoginOutlined  } from '@ant-design/icons';
-import { Layout, Menu , Avatar, Button ,Descriptions} from 'antd';
+import { MenuOutlined, CloseOutlined, UserOutlined, LoginOutlined } from '@ant-design/icons';
+import { Layout, Menu, Avatar, Button, Descriptions } from 'antd';
 
-const { Header, Sider} = Layout;
+const { Header, Sider } = Layout;
 
 const Navbar = styled(Header)`
     background-color: #9696f1;
@@ -13,7 +13,6 @@ const Navbar = styled(Header)`
     display: flex;
     justify-content: start;
     z-index: 1;
-    position: fixed;
     width: 100%;
     max-width: 600px;
     top: 0;
@@ -28,7 +27,6 @@ const Navmenu = styled(Menu)<{ active: 'active' | false }>`
     background-color: #9696f1;
     width: 250px;
     height: 100vh;
-
     justify-content: center;
     margin: 0 auto;
     display: flex;
@@ -38,13 +36,12 @@ const Navmenu = styled(Menu)<{ active: 'active' | false }>`
     box-shadow: 5px 5px 5px #8080d4 !important;
     transition: 850ms;
     z-index: 100;
-
     ${({ active }) => {
         if (active === 'active') {
             return css`
                 left: 0%;
                 transition: 350ms;
-                border-top-right-radius: 30px ;
+                border-top-right-radius: 30px;
             `;
         }
     }}
@@ -62,7 +59,6 @@ const Listmenu = styled.li`
         list-style: none;
         height: 60px;
     }
-
     &.nav-text a {
         text-decoration: none;
         color: #ffffff;
@@ -74,7 +70,6 @@ const Listmenu = styled.li`
         padding: 0 60px;
         border-radius: 4px;
     }
-
     &.nav-text a:hover {
         background-color: #ffffff;
         color: black;
@@ -85,18 +80,17 @@ const Span = styled.span`
     margin-left: 16px;
 `;
 const Avataruser = styled.div`
-    margin: 30px 0px 10px 0px ;
+    margin: 30px 0px 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 `;
 const AvatarName = styled.span`
-    margin: 20px 0 20px 0 ;
+    margin: 20px 0 20px 0;
     font-size: 22px;
     font-weight: 300;
-
-`
+`;
 
 const LoginBtn = styled(Button)`
     justify-content: center;
@@ -104,25 +98,26 @@ const LoginBtn = styled(Button)`
     width: 80%;
     height: 40px;
     border-radius: 10px;
-    margin: 10px 0 0 0 ;
-`
+    margin: 10px 0 0 0;
+`;
 
 const Overlay = styled.div<{ active: 'active' | false }>`
     ${({ active }) => {
         if (active === 'active') {
             return css`
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: #0c1066;
-  opacity: 0.3;
-  z-index: 2;
-  `
-    }}}
-`
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                background-color: #0c1066;
+                opacity: 0.3;
+                z-index: 2;
+            `;
+        }
+    }}
+`;
 
 const Burger = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -132,37 +127,35 @@ const Burger = () => {
     const loginAccess = () => setVisble(true);
     const notAccess = () => setVisble(false);
 
-
     return (
         <>
             <Navbar>
                 <Bar to="#">
-                    <MenuOutlined style={{ color: '#ffffff' }} onClick={showSidebar} />                   
+                    <MenuOutlined style={{ color: '#ffffff' }} onClick={showSidebar} />
                 </Bar>
             </Navbar>
 
-            <Overlay active={sidebar ? 'active' : false} onClick={showSidebar}/>
+            <Overlay active={sidebar ? 'active' : false} onClick={showSidebar} />
 
             <Navmenu active={sidebar ? 'active' : false}>
                 <Ul onClick={showSidebar}>
-
                     <Avataruser>
-                    <Avatar size={75} icon={<UserOutlined />} />
-                    <AvatarName> Guest #000</AvatarName>
-                    {
-                        visible ? null : <LoginBtn type="primary" onClick={loginAccess}>Login</LoginBtn>
-                    }
-                    
+                        <Avatar size={75} icon={<UserOutlined />} />
+                        <AvatarName> Guest #000</AvatarName>
+                        {visible ? null : (
+                            <LoginBtn type="primary" onClick={loginAccess}>
+                                Login
+                            </LoginBtn>
+                        )}
                     </Avataruser>
-                    {
-        visible &&
-        <Listmenu className="nav-text">
-            <Bar to="/profile">
-                <UserOutlined />
-                <Span> Profile </Span>
-            </Bar>
-        </Listmenu>
-        }
+                    {visible && (
+                        <Listmenu className="nav-text">
+                            <Bar to="/profile">
+                                <UserOutlined />
+                                <Span> Profile </Span>
+                            </Bar>
+                        </Listmenu>
+                    )}
                     {ListMenu.map((item, index) => {
                         return (
                             <Listmenu key={index} className={item.cName}>
@@ -173,15 +166,14 @@ const Burger = () => {
                             </Listmenu>
                         );
                     })}
-                {
-                    visible &&
-                    <Listmenu className="nav-text">
-                        <Bar to="#" onClick={notAccess}>
-                            <LoginOutlined />
-                            <Span> Logout</Span>
-                        </Bar>
-                    </Listmenu>
-                }
+                    {visible && (
+                        <Listmenu className="nav-text">
+                            <Bar to="#" onClick={notAccess}>
+                                <LoginOutlined />
+                                <Span> Logout</Span>
+                            </Bar>
+                        </Listmenu>
+                    )}
                 </Ul>
             </Navmenu>
         </>
