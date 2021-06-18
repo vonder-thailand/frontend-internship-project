@@ -15,17 +15,17 @@ const MainContent = styled(Content)`
     width: 100%;
     margin-top: 80px;
     overflow-y: scroll;
-`;
+`
 
 const App = () => {
     return (
         <>
-            <Container>
-                <Burger />
-                <MainContent>
-                    <Routing />
-                </MainContent>
-            </Container>
+        <Container>
+            <Burger />
+        <MainContent>
+            <Routing />
+        </MainContent>
+        </Container>
         </>
     );
 };
