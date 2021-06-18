@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 // import useSWR from 'swr';
 // import axios from 'axios';
 import { API_Profile_Data } from '../apis/profile.api';
-import { Layout, Form, Button } from 'antd';
+import { Form, Avatar } from 'antd';
 import { useEffect } from 'react';
 import { IProfile } from '../shared/Profile.interface';
 import { useState } from 'react';
-import { Container, MoveCenter, AlignRight, ButtonSubmit , BgColor} from '../shared/Profile.styles';
+import { Container, MoveCenter, AlignRight, ButtonSubmit, BgColor, TextUserInfo, TextTopic, TextUsername, ResultCard, UserImage } from '../shared/Profile.styles';
 
 //const { Content } = Layout;
 
@@ -29,33 +29,37 @@ function Profile() {
     return (
         <div className="App">
             <BgColor>
-                    <Container>
-                        <MoveCenter>
-                            <h1>ข้อมูลส่วนตัว</h1>
-                            <img src={cred.pic} width={80}></img>
-                            <h1>{cred.username}</h1>
-                        </MoveCenter>
-                        <h2>
-                            ชื่อ-นามสกุล :
-                            <AlignRight>
-                                {cred.name} {cred.surname}
-                            </AlignRight>
-                        </h2>
-                        <h2>
-                            อีเมล : <AlignRight>{cred.email}</AlignRight>
-                        </h2>
-                        <br />
-                        <Link to="/editProfile">
-                            <Form.Item>
-                                <MoveCenter>
-                                    <ButtonSubmit>แก้ไขข้อมูลส่วนตัว</ButtonSubmit>
-                                </MoveCenter>
-                            </Form.Item>
+                <Container>
+                    <MoveCenter>
+                        <TextTopic>ข้อมูลส่วนตัว</TextTopic>
+                        <UserImage src={cred.pic} />
+                        <TextUsername>{cred.username}</TextUsername>
+                    </MoveCenter>
+                    <TextUserInfo>
+                        ชื่อ-นามสกุล :
+                        <AlignRight>
+                            {cred.name} {cred.surname}
+                        </AlignRight>
+                    </TextUserInfo>
+                    <TextUserInfo>
+                        อีเมล : <AlignRight>{cred.email}</AlignRight>
+                    </TextUserInfo>
+                    <Link to="/editProfile">
+                        <Form.Item>
+                            <MoveCenter>
+                                <ButtonSubmit>แก้ไขข้อมูลส่วนตัว</ButtonSubmit>
+                            </MoveCenter>
+                        </Form.Item>
+                    </Link>
+                    <TextUserInfo>ผลลัพธ์จากแบบทดสอบ :</TextUserInfo>
+                    <MoveCenter>
+                        <Link to="/">
+                            <ResultCard>
+                                <AlignRight>{cred.result}</AlignRight>
+                            </ResultCard>
                         </Link>
-                        <h2>
-                            ผลลัพธ์จากแบบทดสอบ : <AlignRight>{cred.result}</AlignRight>
-                        </h2>
-                    </Container>
+                    </MoveCenter>
+                </Container>
             </BgColor>
         </div>
     );

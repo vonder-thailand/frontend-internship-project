@@ -3,7 +3,7 @@ import { API_Profile_Data } from '../apis/profile.api';
 //import * as data from '../mocks/user.json';
 import { IProfile } from '../shared/Profile.interface';
 import { Form } from 'antd';
-import { Container, MoveCenter, ButtonSubmit, BgColor , FormInput } from '../shared/Profile.styles';
+import { Container, MoveCenter, ButtonSubmit, BgColor , FormInput , UserImage , TextTopic , TextUserInfo} from '../shared/Profile.styles';
 //import { ProfileContext, ProfileProvider } from '../shared/ProfileContext';
 
 //const { Content } = Layout;
@@ -82,17 +82,16 @@ function EditProfile() {
             <BgColor>
                 <Container>
                     <MoveCenter>
-                        <h1>แก้ไขข้อมูลส่วนตัว</h1>
-                        <img src={cred.pic} width={80}></img>
-                        <br />
+                        <TextTopic>แก้ไขข้อมูลส่วนตัว</TextTopic>
+                        <UserImage src={cred.pic}/>
                         <form>
-                            <h2>ชื่อผู้ใช้</h2>
+                            <TextUserInfo>ชื่อผู้ใช้</TextUserInfo>
                             <FormInput name="username" value={cred.username} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
-                            <h2>อีเมล</h2>
-                            <FormInput name="email" value={cred.email} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
-                            <h2>ชื่อจริง</h2>
+                            <TextUserInfo>อีเมล</TextUserInfo>
+                            <FormInput name="email" value={cred.email} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} disabled/>
+                            <TextUserInfo>ชื่อจริง</TextUserInfo>
                             <FormInput name="name" value={cred.name} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
-                            <h2>นามสกุล</h2>
+                            <TextUserInfo>นามสกุล</TextUserInfo>
                             <FormInput name="surname" value={cred.surname} onChange={({ target: { value , name } }) => {handleOnChange( name , value )}} />
                         </form>
                         <br />

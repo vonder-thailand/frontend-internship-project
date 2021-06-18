@@ -1,15 +1,15 @@
-import axios from 'axios';
-import useSWR from 'swr';
+//import axios from 'axios';
+//import useSWR from 'swr';
 import mockData from '../mocks/user.json';
 
 export async function API_Profile_Data() {
     //const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
-    // const fetcher = (url: string) => axios.get(url).then((res) => res.data);
-    // const { data } = useSWR('/apis/user', fetcher);
+    //const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+    //const { data } = useSWR('/apis/user', fetcher);
     // console.log(data)
     // return data
-    //console.log(mockData)
-    return mockData   
+    console.log(mockData)
+    return mockData  
     
     
 }

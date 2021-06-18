@@ -53,7 +53,7 @@ export const TextOnImageTest = styled.div`
 export const TextBoard = styled(Col)`
     font-family: 'Kanit', sans-serif;
     font-weight: bolder;
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
     flex-direction: column;
