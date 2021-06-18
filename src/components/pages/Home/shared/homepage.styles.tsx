@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Space, Button, Col, List } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
 
 export const SearchField = styled(Space)`
     margin-top: 20px;
@@ -33,6 +34,11 @@ export const ImageTestPage = styled.div`
     margin: 0 auto;
     background-color: #7879f1;
     border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &:hover {
         background-color: #efefef;
         color: black;
@@ -42,13 +48,23 @@ export const ImageTestPage = styled.div`
     }
 `;
 
+export const IconArrow = styled(RightOutlined)`
+    color: #ffffff;
+    display: flex;
+    /* justify-content: right; */
+    /* position: relative; */
+    padding: 0px 6px;
+    margin-left: auto;
+    transform: translateY(-25px);
+`;
+
 export const TextOnImageTest = styled.div`
     font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     color: white;
     font-size: 25px;
-    text-align: center;
-    transform: translateY(200%);
+
+    /* padding: 70px 0; */
 `;
 export const TextBoard = styled(Col)`
     font-family: 'Kanit', sans-serif;
