@@ -12,9 +12,7 @@ const AppWithRouter = () => (
   </BrowserRouter>
 );
 ReactDOM.render(
-  <React.StrictMode>
-      <AppWithRouter />
-  </React.StrictMode>,
+      <AppWithRouter />,
   document.getElementById('root'),
 );
 
