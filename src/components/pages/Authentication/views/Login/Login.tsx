@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { useEffect } from 'react';
 import { API_Login_Data } from '../../apis/user.api';
-import { Form, Input } from 'antd';
+import { Form, Space } from 'antd';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 
 import { ILogin } from '../../shared/login.interface';
-import { ButtonColor, InputEmail, InputPassword, FontText } from 'components/pages/Authentication/shared/style';
+import { ButtonColor, InputEmail, InputPassword, FontText, FontTextHeader, LogoPage } from 'components/pages/Authentication/shared/style';
 
 const layout = {
   labelCol: { span: 8 },
@@ -20,13 +20,6 @@ const MoveCeneter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`;
-
-const MoveBottom = styled.div`
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    align-self: flex-end;
 `;
 
 function Login() {
@@ -62,6 +55,11 @@ function Login() {
   return (
     <div>
       <MoveCeneter>
+        <Space align="start">
+          <FontTextHeader>
+            เข้าสู่ระบบ
+          </FontTextHeader>
+        </Space>
         <Form initialValues={{ remember: true }} onFinish={onFinish} >
           <Form.Item
             name="email"
@@ -89,19 +87,16 @@ function Login() {
           </Form.Item>
 
           <Form.Item>
-            <ButtonColor onClick={checkdatajson} htmlType="submit" style={{ width: 324, height: 55 }} >
+            <ButtonColor onClick={checkdatajson} htmlType="submit">
               เข้าสู่ระบบ
             </ButtonColor>
           </Form.Item>
-
-          <Form.Item>
-            <FontText>
-              <MoveBottom>
-                ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
-              </MoveBottom>
-            </FontText>
-          </Form.Item>
         </Form>
+
+        <FontText>
+          ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
+        </FontText>
+
       </MoveCeneter>
     </div>
   );
