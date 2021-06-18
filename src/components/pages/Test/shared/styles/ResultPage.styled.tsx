@@ -57,6 +57,7 @@ export const Hname = styled.h1`
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
 `
 export const DesText = styled.p`
     margin: 0 50px 0 50px;
@@ -64,10 +65,31 @@ export const DesText = styled.p`
     align-items: center;
     justify-content: center;
 `
+export const DesBox = styled.div`
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    overflow-y: hidden;
+`
 export const BodyCard = styled.div`
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
 
+`
+export const Readmore = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    background-color: #ffffff;
+    opacity: 1;
+    color: #3e3eee;
+    border-radius: 30px ;
+    
 `

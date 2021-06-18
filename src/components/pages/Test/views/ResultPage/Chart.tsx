@@ -8,7 +8,7 @@ interface Chartprop {
 
 const Charts = () => {
   const MockScore = require('../../mocks/result.json')
-  const chartScore = Object.keys(MockScore).map(key => MockScore[key].score)
+  const chartScore = MockScore.map((key: { score: any; }) => key.score)
   const chartSkill = Object.keys(MockScore).map(key => MockScore[key].skill)
 
     const [chartValue, setchartValue] = useState<Chartprop>({
@@ -28,9 +28,6 @@ const Charts = () => {
                     left: 1,
                     top: 1
                   }
-                },
-                title: {
-                  text: "ผลลัพธ์ของคุณ"
                 },
                 stroke: {
                   width: 2
