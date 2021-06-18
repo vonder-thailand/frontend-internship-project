@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from 'components/pages/Home/view/Home';
 import Board from 'components/pages/Board/views/Board';
-import Profile from 'components/pages/Profile/views/Profile';
+import Profile from 'components/pages/Profile/views/profile';
 import Login from 'components/pages/Authentication/views/Login/Login';
 import Register from 'components/pages/Authentication/views/Register/Register';
 import Test from 'components/pages/Test/views/TestStartPage/Test';
-import EditProfile from 'components/pages/Profile/views/EditProfile';
+import EditProfile from 'components/pages/Profile/views/editProfile';
 import TestQuestion from 'components/pages/Test/views/TestQuestion/TestQuestion';
 class Routing extends Component {
     render() {
