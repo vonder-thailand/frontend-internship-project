@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { API_Profile_Data } from '../apis/profile.api';
 import { Form, List } from 'antd';
 import { useEffect } from 'react';
-import { IIconTextProfile, IListDataProfile, IProfile } from '../shared/Profile.interface';
+import { IIconTextProfile, IListDataProfile, IProfile } from '../shared/profile.interface';
 import { useState } from 'react';
 import {
     Container,
@@ -30,7 +30,7 @@ import {
     ProfileListBoard,
     ProfileListItemBoard,
     HistoryImage,
-} from '../shared/Profile.styles';
+} from '../shared/profile.styles';
 import React from 'react';
 
 //const { Content } = Layout;
