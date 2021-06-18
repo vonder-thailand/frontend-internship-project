@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
+import { ButtonColor, InputEmail, InputPassword, InputFirstname, InputLastname, InputUsername } from 'components/pages/Authentication/shared/style';
 
 const validateMessages = {
   required: 'required!',
@@ -22,6 +23,7 @@ const MoveCenter = styled.div`
 const MoveBottom = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     align-self: flex-end;
 `;
 
@@ -29,31 +31,30 @@ const Register = () => {
   return (
     <div>
       <MoveCenter>
+        เข้าสู่ระบบ
         <Form name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
           <Form.Item name={['user', 'first_name']} rules={[{ required: true }]} >
-            <Input placeholder="ชื่อจริง" style={{ width: 300 }} />
+            <InputFirstname placeholder="ชื่อจริง" />
           </Form.Item>
           <Form.Item name={['user', 'last_name']} rules={[{ required: true }]} >
-            <Input placeholder="นามสกุล" style={{ width: 300 }} />
+            <InputLastname placeholder="นามสกุล" />
           </Form.Item>
           <Form.Item name={['user', 'username']} rules={[{ required: true }]} >
-            <Input placeholder="ชื่อผู้ใช้" style={{ width: 300 }} />
+            <InputUsername placeholder="ชื่อผู้ใช้"  />
           </Form.Item>
           <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]} >
-            <Input placeholder="อีเมล" style={{ width: 300 }} />
+            <InputEmail placeholder="อีเมล" />
           </Form.Item>
           <Form.Item name={['user', 'password']} rules={[{ required: true }]} >
-            <Input.Password placeholder="รหัสผ่าน" style={{ width: 300 }} />
+            <InputPassword placeholder="รหัสผ่าน" />
           </Form.Item>
           <Form.Item name={['user', 'repeat_password']} rules={[{ required: true, message: 'Please input your password!' }]} >
-            <Input.Password placeholder="ยืนยันรหัสผ่าน" style={{ width: 300 }} />
+            <InputPassword placeholder="ยืนยันรหัสผ่าน" />
           </Form.Item>
           <Form.Item>
-            <MoveBottom>
-            <Button type="primary" htmlType="submit" style={{ width: 300 }}>
-              Submit
-            </Button>
-            </MoveBottom>
+              <ButtonColor htmlType="submit" style={{ width: 324, height: 55 }}>
+                Submit
+              </ButtonColor>
           </Form.Item>
         </Form>
       </MoveCenter>

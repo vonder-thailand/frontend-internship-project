@@ -1,28 +1,19 @@
 import React, { useState, useCallback } from 'react';
 import { useEffect } from 'react';
 import { API_Login_Data } from '../../apis/user.api';
-import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input } from 'antd';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 
-import 'antd/dist/antd.css';
 import { ILogin } from '../../shared/login.interface';
+import { ButtonColor, InputEmail, InputPassword, FontText } from 'components/pages/Authentication/shared/style';
 
 const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 10 },
+  labelCol: { span: 8 },
+  wrapperCol: { span: 10 },
 };
 const tailLayout = {
-    wrapperCol: { offset: 8, span: 10 },
-};
-
-const onFinish = (values: any) => {
-    console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+  wrapperCol: { offset: 8, span: 10 },
 };
 
 const MoveCeneter = styled.div`
@@ -31,87 +22,89 @@ const MoveCeneter = styled.div`
     align-items: center;
 `;
 
+const MoveBottom = styled.div`
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    align-self: flex-end;
+`;
+
 function Login() {
-    const [currentUserDetail, setCurrentUserDetail] = useState<ILogin>({ firstname: '', lastname: '', username: '', email: '', password: '' });
-    const [currentUser, setCurrentUser] = useState<number>(0);
-    const [userList, setUserList] = useState<Array<ILogin> | null>(null);
-    const history = useHistory();
-    const [email ,setEmail] = useState<string>("");
-    const [password ,setPassword] = useState<string>("");
+  const history = useHistory();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-    useEffect(() => {
-        console.log('here');
-        if (!userList) return;
-        setCurrentUserDetail(userList[currentUser]);
-    }, [currentUser, userList]);
+  const onFinish = (values: ILogin) => {
+    const mockUser = require("../../mocks/user.json")
+    const currentUser = mockUser.find((user: ILogin) => user.email === values.email)
 
-    async function getLoginData() {
-        const response = await API_Login_Data();
-        if (response) {
-            setUserList(response);
-            const resp = response;
-            setCurrentUserDetail(resp[currentUser]);
-        } else {
-            console.log('error');
-        }
+    mockUser.find((user: ILogin) => console.log(user))
+    if (values.password === currentUser?.password) {
+      history.push("/");
+    } else {
+      console.log("Failed login");
     }
-    useEffect(() => {
-        getLoginData();
-    }, []);
+    console.log('Success:', values);
+  };
 
-    function checkdatajson(values: any) {
-        if(email == currentUserDetail.email && password == currentUserDetail.password){
-            history.push("/");
-        } else {
-            console.log("Failed login");
-        }
+  function checkdatajson() {
+    const mockUser = require("../../mocks/user.json")
+    const currentUser = mockUser.find((user: ILogin) => user.email === email)
+
+    mockUser.find((user: ILogin) => console.log(user))
+    if (password === currentUser?.password) {
+      history.push("/");
+    } else {
+      console.log("Failed login");
     }
+  }
 
-    return (
-        <div>
-            <MoveCeneter>
-                {/* <div>firstname: {currentUserDetail.firstname}</div>
-                <div>lastname: {currentUserDetail.lastname}</div>
-                <div>username: {currentUserDetail.username}</div>
-                <div>email: {currentUserDetail.email}</div>
-                <div>password: {currentUserDetail.password}</div> */}
-                <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish} >
-                    <Form.Item
-                        name="email"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Username!',
-                            },
-                        ]}
-                    >
-                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="อีเมล" style={{ width: 300 }} value={email} onChange={({ target: {value} }) => {setEmail(value)}} />
-                    </Form.Item>
-                    <Form.Item
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Password!',
-                            },
-                        ]}
-                    >
-                        <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="รหัสผ่าน" style={{ width: 300 }} value={password} onChange={({ target: {value} }) => {setPassword(value)}}/>
-                    </Form.Item>
+  return (
+    <div>
+      <MoveCeneter>
+        <Form initialValues={{ remember: true }} onFinish={onFinish} >
+          <Form.Item
+            name="email"
+            // validateStatus="error"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your Email!',
+              },
+            ]}
+          >
+            <InputEmail placeholder="อีเมล" />
+          </Form.Item>
+          <Form.Item
+            // validateStatus="error"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your Password!',
+              },
+            ]}
+          >
+            <InputPassword type="password" placeholder="รหัสผ่าน" />
+          </Form.Item>
 
-                    <Form.Item>
-                        <Button onClick={checkdatajson} type="primary" htmlType="submit" className="login-form-button" >
-                            เข้าสู่ระบบ
-                        </Button>
-                    </Form.Item>
+          <Form.Item>
+            <ButtonColor onClick={checkdatajson} htmlType="submit" style={{ width: 324, height: 55 }} >
+              เข้าสู่ระบบ
+            </ButtonColor>
+          </Form.Item>
 
-                    <Form.Item>
-                        ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
-                    </Form.Item>
-                </Form>
-            </MoveCeneter>
-        </div>
-    );
+          <Form.Item>
+            <FontText>
+              <MoveBottom>
+                ยังไม่มีบัญชีใช่ไหม? <a href="Register">สร้างบัญชีกันเถอะ!</a>
+              </MoveBottom>
+            </FontText>
+          </Form.Item>
+        </Form>
+      </MoveCeneter>
+    </div>
+  );
 }
 
 export default Login;
