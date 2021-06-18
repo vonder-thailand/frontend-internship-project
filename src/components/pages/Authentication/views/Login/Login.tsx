@@ -6,9 +6,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router';
 
 import { ILogin } from '../../shared/login.interface';
-import { ButtonColor, InputEmail, InputPassword, FontText, FontTextHeader, LogoPage } from 'components/pages/Authentication/shared/style';
-
-import logo from "../../images/logo.png";
+import { ButtonColor, FontText, FontTextHeader, BaseInput, LogoPage } from 'components/pages/Authentication/shared/style';
 
 const MoveCeneter = styled.div`
     display: flex;
@@ -49,7 +47,7 @@ function Login() {
   return (
     <div>
       <MoveCeneter>
-        <img src={logo} />
+
         <Space align="start">
           <FontTextHeader>
             เข้าสู่ระบบ
@@ -66,7 +64,7 @@ function Login() {
               },
             ]}
           >
-            <InputEmail placeholder="อีเมล" />
+            <BaseInput placeholder="อีเมล" />
           </Form.Item>
           <Form.Item
             // validateStatus="error"
@@ -78,7 +76,7 @@ function Login() {
               },
             ]}
           >
-            <InputPassword type="password" placeholder="รหัสผ่าน" />
+            <BaseInput type="password" placeholder="รหัสผ่าน" />
           </Form.Item>
 
           <Form.Item>

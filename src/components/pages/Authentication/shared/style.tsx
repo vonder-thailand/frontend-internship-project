@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Button, Image } from 'antd';
-import LogoLogin from "../../Authentication/images/Group.png";
+import { Button, Image, Input } from 'antd';
+import logo from "../../images/logo.png";
 
 export const ButtonColor = styled(Button)`
     font-family: 'Kanit', sans-serif;
@@ -17,74 +17,34 @@ export const ButtonColor = styled(Button)`
     position: absolute;
 `;
 
-export const InputFirstname = styled.input.attrs(props => ({
-    type: "text",
-    size: props.size || "1em",
-}))`
+export const BaseInput = styled(Input)`
     color: grey;
-    font-family: 'Kanit', sans-serif;
     font-size: 18px;
     border-radius: 15px;
     width: 324px;
     height: 55px;
-    /* margin: ${props => props.size}; */
-    padding: ${props => props.size};
 `;
 
-export const InputLastname = styled.input.attrs(props => ({
-    type: "text",
-    size: props.size || "1em",
-}))`
+export const BaseInputPassword = styled(Input)`
     color: grey;
-    font-family: 'Kanit', sans-serif;
     font-size: 18px;
     border-radius: 15px;
     width: 324px;
     height: 55px;
-    /* margin: ${props => props.size}; */
-    padding: ${props => props.size};
 `;
 
-export const InputUsername = styled.input.attrs(props => ({
-    type: "text",
-    size: props.size || "1em",
-}))`
+export const BaseInputEmail = styled(Input)`
     color: grey;
-    font-family: 'Kanit', sans-serif;
     font-size: 18px;
     border-radius: 15px;
     width: 324px;
     height: 55px;
-    /* margin: ${props => props.size}; */
-    padding: ${props => props.size};
 `;
 
-export const InputEmail = styled.input.attrs(props => ({
-    type: "email",
-    size: props.size || "1em",
-}))`
-    color: grey;
-    font-family: 'Kanit', sans-serif;
-    font-size: 18px;
-    border-radius: 15px;
-    width: 324px;
-    height: 55px;
-    /* margin: ${props => props.size}; */
-    padding: ${props => props.size};
-`;
-
-export const InputPassword = styled.input.attrs(props => ({
-    type: "password",
-    size: props.size || "1em",
-}))`
-    color: grey;
-    font-family: 'Kanit', sans-serif;
-    font-size: 18px;
-    border-radius: 15px;
-    width: 324px;
-    height: 55px;
-    /* margin: ${props => props.size}; */
-    padding: ${props => props.size};
+export const LogoPage = styled(Image)`
+    width: 98;
+    height: 120;
+    src: logo;
 `;
 
 export const FontText = styled.div`
@@ -99,10 +59,4 @@ export const FontTextHeader = styled.div`
     font-size: 18px;
     font-weight: bold;
     padding: 30px;
-`;
-
-export const LogoPage = styled.div`
-    background-color: black;
-    width: 98;
-    height: 120;
 `;
