@@ -16,6 +16,7 @@ const Navbar = styled(Header)`
     position: fixed;
     width: 100%;
     max-width: 600px;
+    top: 0;
 `;
 const Bar = styled(Link)`
     margin-top: 10px;

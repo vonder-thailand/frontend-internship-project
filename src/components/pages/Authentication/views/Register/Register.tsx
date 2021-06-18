@@ -1,16 +1,15 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';
+import { Form, Space } from 'antd';
 import styled from 'styled-components';
+import { useHistory } from 'react-router';
+import { ButtonColor, FontTextHeader, BaseInput } from 'components/pages/Authentication/shared/style';
 
-const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 },
-};
+import logo from "../../images/logo.png";
 
 const validateMessages = {
-  required: '${label} is required!',
+  required: 'required!',
   types: {
-    email: '${label} is not a valid email!',
+    email: 'not a valid email!',
   }
 };
 
@@ -24,38 +23,48 @@ const MoveCenter = styled.div`
     align-items: center;
   `;
 
-const Register = () => {
-  return (
-    <div>
-      <MoveCenter>
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-          <Form.Item name={['user', 'first_name']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }} >
-            <Input placeholder="ชื่อจริง" style={{ width: 300 }} />
-          </Form.Item>
-          <Form.Item name={['user', 'last_name']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }} >
-            <Input placeholder="นามสกุล" style={{ width: 300 }} />
-          </Form.Item>
-          <Form.Item name={['user', 'username']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }} >
-            <Input placeholder="ชื่อผู้ใช้" style={{ width: 300 }} />
-          </Form.Item>
-          <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
-            <Input placeholder="อีเมล" style={{ width: 300 }} />
-          </Form.Item>
-          <Form.Item name={['user', 'password']} rules={[{ required: true }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
-            <Input.Password placeholder="รหัสผ่าน" style={{ width: 300 }} />
-          </Form.Item>
-          <Form.Item name={['user', 'repeat_password']} rules={[{ required: true, message: 'Please input your password!' }]} wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
-            <Input.Password placeholder="ยืนยันรหัสผ่าน" style={{ width: 300 }} />
-          </Form.Item>
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
-            <Button type="primary" htmlType="submit" style={{ width: 300 }}>
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
-      </MoveCenter>
-    </div>
+const MoveBomttom = styled(Form.Item)`
+    position: absolute;
+    bottom: 2rem;
+`;
 
+function Register(){
+  return(
+    <div>
+    <MoveCenter>
+    <img src={logo} />
+      <Space align="start">
+        <FontTextHeader>
+          สร้างบัญชี
+        </FontTextHeader>
+      </Space>
+      <Form name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+        <Form.Item name={['user', 'first_name']} rules={[{ required: true }]} >
+          <BaseInput placeholder="ชื่อจริง" />
+        </Form.Item>
+        <Form.Item name={['user', 'last_name']} rules={[{ required: true }]} >
+          <BaseInput placeholder="นามสกุล" />
+        </Form.Item>
+        <Form.Item name={['user', 'username']} rules={[{ required: true }]} >
+          <BaseInput placeholder="ชื่อผู้ใช้" />
+        </Form.Item>
+        <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]} >
+          <BaseInput placeholder="อีเมล" />
+        </Form.Item>
+        <Form.Item name={['user', 'password']} rules={[{ required: true }]} >
+          <BaseInput placeholder="รหัสผ่าน" />
+        </Form.Item>
+        <Form.Item name={['user', 'repeat_password']} rules={[{ required: true, message: 'Please input your password!' }]} >
+          <BaseInput placeholder="ยืนยันรหัสผ่าน" />
+        </Form.Item>
+        <Form.Item>
+            <ButtonColor htmlType="submit" >
+              Submit
+            </ButtonColor>
+        </Form.Item>
+      </Form>
+    </MoveCenter>
+  </div>
   );
 }
 
