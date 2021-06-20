@@ -6,10 +6,15 @@ const MockScore = require('../../mocks/result.json');
 const chartScore = Object.keys(MockScore).map((key) => MockScore[key].score);
 const Max = Math.max(...chartScore);
 
+// const Max = MockScore.reduce((prev: { score: number; }, current: { score: number; }) =>
+//     prev.score > current.score ? prev : current
+//   );
+
 const Namemax = MockScore.filter((data: { score: number }) => data.score === Max);
 
 const Descrip = () => {
     const history = useHistory();
+
     useEffect(() => {
         console.log('Maxscore: ', Max);
         console.log('Name: ', Namemax);
@@ -19,7 +24,7 @@ const Descrip = () => {
             <div>
                 {Namemax.map((item: any, index: any) => {
                     return (
-                        <ResultCard key={index}>
+                        <ResultCard key={index} onClick={() => history.push({ pathname: "/readmore" ,search: `categoryID=${item.categoryID}` })}>
                             <BodyCard>
                                 <Hname>
                                     {item.skill} : {item.score} คะแนน
