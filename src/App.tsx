@@ -17,18 +17,18 @@ const MainContent = styled(Content)`
     height: calc(100vh - 80px);
     width: 100%;
     overflow-y: scroll;
-`;
+`
 
 
 const App = () => {
     return (
         <>
-            <Container>
-                <Burger />
-                <MainContent>
-                    <Routing />
-                </MainContent>
-            </Container>
+        <Container>
+            <Burger />
+        <MainContent>
+            <Routing />
+        </MainContent>
+        </Container>
         </>
     );
 };
