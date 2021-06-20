@@ -88,3 +88,21 @@ export const Readmore = styled.div`
     color: #3e3eee;
     border-radius: 30px;
 `;
+export const TextBox = styled.div`
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%
+`;
+
+export const Resultpic = styled.div`
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffd6d2;
+    width: 60%;
+    height: 300px;
+`;
