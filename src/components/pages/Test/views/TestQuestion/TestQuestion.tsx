@@ -135,11 +135,11 @@ function TestQuestion() {
                 okText="เริ่มใหม่"
                 cancelText="ยกเลิก"
                 onOk={handleOk}
-                footer={[
-                    <ContainerButtonStartOver>
-                        <ButtonConfirmStartOver onClick={handleOk}>เริ่มใหม่</ButtonConfirmStartOver>, <ButtonCancleStartOver onClick={handleCancel}>ยกเลิก</ButtonCancleStartOver>
-                    </ContainerButtonStartOver>,
-                ]}
+                // footer={[
+                //     <ContainerButtonStartOver>
+                //         <ButtonConfirmStartOver onClick={handleOk}>เริ่มใหม่</ButtonConfirmStartOver>, <ButtonCancleStartOver onClick={handleCancel}>ยกเลิก</ButtonCancleStartOver>
+                //     </ContainerButtonStartOver>,
+                // ]}
                 width={400}
                 confirmLoading={confirmLoading}
                 onCancel={handleCancel}
