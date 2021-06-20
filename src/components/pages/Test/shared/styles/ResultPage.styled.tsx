@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { Button,Typography ,Card} from 'antd';
+import { Button, Typography, Card } from 'antd';
 
 const { Title } = Typography;
 
 export const ButtonHome = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 0 25px 25px 0;
     color: #ffffff;
     background-color: #7879f1;
@@ -14,22 +13,21 @@ export const ButtonHome = styled(Button)`
 `;
 
 export const ButtonStart = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: #7879f1;
     background-color: #ffffff;
     width: 5rem;
     height: 6vh;
-    left: calc( 100vh - 45vh);
+    left: calc(100vh - 45vh);
 `;
 
-export const TextTitle = styled(Title )`
+export const TextTitle = styled(Title)`
     justify-items: center;
     display: contents;
-`
+`;
 export const ResultCard = styled(Card)`
-    border-radius: 20px ;
+    border-radius: 20px;
     border: solid 2px #7879f1;
     margin: 50px;
     padding: 0;
@@ -41,30 +39,29 @@ export const ResultCard = styled(Card)`
         align-items: center;
         justify-content: center;
     } */
-
-`
+`;
 export const Boxpic = styled.div`
-    border-radius: 20px ;
+    border-radius: 20px;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFD6D2;
+    background-color: #ffd6d2;
     width: 50%;
     height: 150px;
-`
+`;
 export const Hname = styled.h1`
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-`
+`;
 export const DesText = styled.p`
     margin: 0 50px 0 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-`
+`;
 export const DesBox = styled.div`
     margin-top: 10px;
     display: flex;
@@ -72,14 +69,13 @@ export const DesBox = styled.div`
     justify-content: center;
     height: 50px;
     overflow-y: hidden;
-`
+`;
 export const BodyCard = styled.div`
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
-
-`
+`;
 export const Readmore = styled.div`
     display: flex;
     align-items: center;
@@ -90,6 +86,23 @@ export const Readmore = styled.div`
     background-color: #ffffff;
     opacity: 1;
     color: #3e3eee;
-    border-radius: 30px ;
-    
-`
+    border-radius: 30px;
+`;
+export const TextBox = styled.div`
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%
+`;
+
+export const Resultpic = styled.div`
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffd6d2;
+    width: 60%;
+    height: 300px;
+`;

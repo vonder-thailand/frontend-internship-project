@@ -1,4 +1,4 @@
-import mockData from '../mocks/login.json'
+import mockData from '../mocks/user.json'
 import { ILogin } from '../shared/login.interface'
 
 export async function API_Login_Data() {

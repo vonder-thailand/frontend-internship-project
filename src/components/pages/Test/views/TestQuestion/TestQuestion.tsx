@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import TestAnimation from '../TestStartPage/TestAnimation';
-import { TextQuestionIndex, ButtonStartOver, TextQuestion, ButtonChoiceStlyed, ContainerButton } from '../../shared/styles/testQuestion.styled';
+import { TextQuestionIndex, ButtonStartOver, TextQuestion, ButtonChoiceStlyed, ContainerButton } from '../../shared/styles/TestQuestion.styled';
 import { useHistory } from 'react-router-dom';
 import { API_GetTestData, API_PostTestResult } from '../../apis/test.api';
-import { IQuestion, IUserAns } from '../../shared/interface/test.interfaces';
+import { IQuestion, IUserAns } from '../../shared/interface/Test.interfaces';
 import { SmileFilled } from '@ant-design/icons';
-import { Modal, Spin } from 'antd';
-import { ButtonLoading, IsLoadingSpinner, TextIsLoading } from '../../shared/styles/testPage.styled';
+import { Spin } from 'antd';
+import { IsLoadingSpinner, TextIsLoading } from '../../shared/styles/TestPage.styled';
 
 function TestQuestion() {
     //
@@ -94,32 +94,14 @@ function TestQuestion() {
             <TestAnimation />
 
             <div>
-                {/* {isLoading ? (
-                    ''
-                ) : (
-                    <ContainerButton>
-                        {buttonList.map((item) => {
-                            return (
-                                <ButtonChoiceStlyed
-                                    onClick={() => {
-                                        onNextQuestion(item.value);
-                                    }}
-                                    icon={item.icon}
-                                >
-                                    {item.label}
-                                </ButtonChoiceStlyed>
-                            );
-                        })}
-                    </ContainerButton>
-                )} */}
-
                 {isLoading ? (
                     ''
                 ) : (
                     <ContainerButton>
-                        {buttonList.map((item) => {
+                        {buttonList.map((item, index) => {
                             return (
                                 <ButtonChoiceStlyed
+                                    key={index}
                                     onClick={() => {
                                         onNextQuestion(item.value);
                                     }}
