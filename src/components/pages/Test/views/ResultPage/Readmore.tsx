@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { BodyCard, Boxpic, DesBox, DesText, Hname, Readmore, ResultCard } from '../../shared/styles/ResultPage.styled';
+import { BodyCard, DesText, Hname, Readmore, ResultCard, Resultpic, TextBox } from '../../shared/styles/ResultPage.styled';
 import { useHistory } from 'react-router-dom';
+import BoardAdvice from './BoardAdvice';
 
 const MockScore = require('../../mocks/result.json');
 
@@ -11,8 +12,7 @@ const ReadMore = () => {
     const params = new URLSearchParams(idResult);
     const key = params.get('categoryID');
     const keyID =  key ?  parseInt(key): "Null";
-    const resultDes = MockScore.find((data: { categoryID: number | any }) => data.categoryID === keyID);
-    console.log('Result :',resultDes)
+    const resultDes = MockScore.find((data: { categoryID: number }) => data.categoryID === keyID);
 
     
     useEffect(() => {
@@ -25,8 +25,18 @@ const ReadMore = () => {
     return (
         <>
             <div>
-              <h1> {resultDes.skill}</h1>
-              <h1> {resultDes.description}</h1>
+                <BodyCard>
+                <Hname>
+                    {resultDes.skill}
+                </Hname>
+                <Resultpic>
+                    <h1>Character </h1>
+                </Resultpic>
+                <TextBox >
+                    <DesText>{resultDes.description}</DesText>
+                </TextBox >        
+                </BodyCard>
+                <BoardAdvice/>
             </div>
         </>
     );
