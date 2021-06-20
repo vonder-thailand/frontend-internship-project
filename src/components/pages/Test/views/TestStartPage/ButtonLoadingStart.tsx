@@ -1,6 +1,6 @@
 import { Spin } from 'antd';
 import { useState } from 'react';
-import { ButtonLoading, IsLoadingSpinner, TextIsLoading } from '../../shared/styles/testPage.styled';
+import { ButtonLoading, IsLoadingSpinner, TextIsLoading } from '../../shared/styles/TestPage.styled';
 import { useHistory } from 'react-router-dom';
 
 function ButtonLoadingStart() {
@@ -22,14 +22,14 @@ function ButtonLoadingStart() {
 
     return (
         <div>
-            {isLoading ?  (
+            {isLoading ? (
                 <IsLoadingSpinner>
                     <TextIsLoading>Fetching Data</TextIsLoading>
                     <Spin size="large" />
                 </IsLoadingSpinner>
-            ) : 
-            <ButtonLoading onClick={fetchData}>เริ่มการทดสอบ</ButtonLoading>
-            }
+            ) : (
+                <ButtonLoading onClick={fetchData}>เริ่มการทดสอบ</ButtonLoading>
+            )}
         </div>
     );
 }

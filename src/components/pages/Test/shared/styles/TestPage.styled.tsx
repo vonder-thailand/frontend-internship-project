@@ -7,7 +7,6 @@ export const Container = styled.div`
 `;
 
 export const TextHeader = styled.h1`
-    font-family: 'Kanit', sans-serif;
     text-align: center;
     font-size: 2rem;
     font-weight: bolder;
@@ -25,7 +24,6 @@ export const BoxAnimation = styled.div`
 `;
 
 export const TextInBoxAnimation = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-size: 2rem;
     color: #7879f1;
     text-align: center;
@@ -41,7 +39,6 @@ export const TextDescription = styled.div`
 `;
 
 export const ButtonLoading = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     border-radius: 15px;
     font-weight: bolder;
     color: white;

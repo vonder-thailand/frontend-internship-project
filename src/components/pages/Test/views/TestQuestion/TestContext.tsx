@@ -25,9 +25,7 @@ const TestProvider = ({ children }: IcontextProps) => {
         [scoreList],
     );
 
-    useEffect(() => {
-        // console.log('scorelist', scoreList);
-    }, [scoreList]);
+    useEffect(() => {}, [scoreList]);
 
     const value = {
         scoreList,

@@ -4,11 +4,9 @@ import { RightOutlined } from '@ant-design/icons';
 
 export const SearchField = styled(Space)`
     margin-top: 20px;
-    font-family: 'Kanit', sans-serif;
 `;
 
 export const TagFilter = styled.div`
-    font-family: 'Kanit', sans-serif;
     border-color: black;
     font-weight: bolder;
     margin-top: 20px;
@@ -16,7 +14,6 @@ export const TagFilter = styled.div`
 `;
 
 export const ButtonTagFilter = styled(Button)`
-    font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     color: black;
     opacity: 0.8;
@@ -51,25 +48,19 @@ export const ImageTestPage = styled.div`
 export const IconArrow = styled(RightOutlined)`
     color: #ffffff;
     display: flex;
-    /* justify-content: right; */
-    /* position: relative; */
     padding: 0px 6px;
     margin-left: auto;
     transform: translateY(-25px);
 `;
 
 export const TextOnImageTest = styled.div`
-    font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     color: white;
     font-size: 25px;
-
-    /* padding: 70px 0; */
 `;
 export const TextBoard = styled(Col)`
-    font-family: 'Kanit', sans-serif;
     font-weight: bolder;
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
     flex-direction: column;
@@ -94,7 +85,6 @@ export const ListBoard = styled(List)`
 
 export const ListItemBoard = styled(List.Item)`
     margin-left: 50px;
-    font-family: 'Kanit', sans-serif;
 `;
 
 export const ButtonCreateBoard = styled(Button)`
