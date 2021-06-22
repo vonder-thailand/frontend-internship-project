@@ -14,6 +14,7 @@ jobs:
             - node_modules
       - run:
           command: git branch
+      - run:
           command: ls -la
       - run: npm run build
       - checkout
