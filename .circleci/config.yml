@@ -12,11 +12,11 @@ jobs:
           key: 'v1-dependencies-{{ checksum "package.json" }}'
           paths:
             - node_modules
-      - run: npm build
+      - run: npm run build
       - checkout
       - run: 
-           name: Test
-           command: npm test
+          name: Test
+          command: npm run test
       - checkout
       - run:
           name: Firebase Deploy
