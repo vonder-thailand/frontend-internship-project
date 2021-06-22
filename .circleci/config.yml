@@ -13,6 +13,8 @@ jobs:
           paths:
             - node_modules
       - run: npm run build
+      - run:
+          command: ls -la
       - checkout
       - run: 
           name: Test
