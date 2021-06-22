@@ -4,6 +4,7 @@ import Burger from 'components/pages/Burger/Burger';
 import { Layout } from 'antd';
 import Flexbox from 'shared/style/theme/Flexbox';
 import Typography from 'shared/style/theme/Typograhy';
+import { BrowserRouter as Router  } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
 const Container = styled.div`
@@ -23,12 +24,15 @@ const MainContent = styled(Content)`
 const App = () => {
     return (
         <>
-            <Container>
+        <Router>
+        <Container>
                 <Burger />
                 <MainContent>
                     <Routing />
                 </MainContent>
             </Container>
+        </Router>
+
         </>
     );
 };
