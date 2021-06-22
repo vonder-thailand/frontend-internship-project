@@ -13,10 +13,10 @@ jobs:
           paths:
             - node_modules
       - run: npm build
-      - checkout
-      - run: 
-          name: Test
-          command: npm test
+      # - checkout
+      # # - run: 
+      # #     name: Test
+      # #     command: npm test
       - checkout
       - run:
           name: Firebase Deploy
