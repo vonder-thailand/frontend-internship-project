@@ -14,9 +14,9 @@ jobs:
       #       - node_modules
       - run:
           command: git branch
-      - run: npm run build
       - run:
           command: ls -la src/components/pages/Test/shared/interface/
+      - run: npm run build
       - checkout
       - run: 
           name: Test
