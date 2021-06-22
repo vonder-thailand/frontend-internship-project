@@ -12,7 +12,7 @@ jobs:
           key: 'v1-dependencies-{{ checksum "package.json" }}'
           paths:
             - node_modules
-      - run: npm build
+      - run: npm run-script build
       - checkout
       - run: 
            name: Test
