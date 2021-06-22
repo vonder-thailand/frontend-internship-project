@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run: 
           name: Test
-          command: npm test
+          command: npm run test
       - checkout
       - run:
           name: Firebase Deploy
