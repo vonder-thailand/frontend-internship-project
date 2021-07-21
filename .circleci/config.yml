@@ -23,7 +23,7 @@ commands:
       - checkout
       - run:
           name: "What a number in this .env"
-          command: touch .env ; echo "REACT_APP_API=$REAC_APP_STAG" >> .env
+          command: touch .env ; echo "REACT_APP_API=$REACT_APP_STAG" >> .env
       - run:
           name: "Check file .env"
           command: ls -la ; cat .env
